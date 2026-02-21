@@ -153,6 +153,7 @@
     "enabled": true,
     "title": "Skills",
     "highlight": "Skills",
+    "id": "skills",
     "categories": [
       {
         "name": "Programming",
@@ -267,6 +268,7 @@
     }
   },
   "publications": {
+    "id": "publications",
     "index": 3,
     "enabled": true,
     "title": "Publications",
@@ -287,6 +289,7 @@
     ]
   },
   "experience": {
+    "id": "experience",
     "index": 4,
     "enabled": true,
     "title": "Work Experience",

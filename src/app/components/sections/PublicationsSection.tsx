@@ -16,6 +16,7 @@ interface PublicationsSectionProps {
 export default function PublicationsSection({
   publications,
 }: PublicationsSectionProps) {
+  if (!publications) return null;
   // Helper component for publication image
   function PublicationImage({
     image,
