@@ -119,7 +119,13 @@
       "resumeUrl": "",
       "buttonText": "Download CV",
       "resumeFileName": "Nikolas_Filippatos_CV.pdf"
-    }
+    },
+    "more": [
+      "Cybersecurity Research Associate at University of Patras, focused on 5G security, training, and CTF tooling.",
+      "Experience with containerized testbeds (Docker/Kubernetes), Linux/network security, and Python automation.",
+      "Active in the CTF community: organizing, participating, and creating challenges (misc/forensics).",
+      "Open to research, security engineering, or educational collaborations."
+    ]
   },
   "stats": {
     "enabled": true,
@@ -199,7 +205,66 @@
         "highlight": "Virtualization",
         "items": ["Docker Compose"]
       }
-    ]
+    ],
+    "more": {
+      "index": 2,
+      "enabled": true,
+      "title": "Skills",
+      "highlight": "Skills",
+      "categories": [
+        {
+          "name": "Programming",
+          "highlight": "Programming",
+          "items": ["Python", "JavaScript", "Node.js", "SQL", "Git"]
+        },
+        {
+          "name": "Cybersecurity",
+          "highlight": "Cybersecurity",
+          "items": [
+            "Web Exploitation",
+            "Forensics",
+            "Pwn",
+            "Network Analysis",
+            "Linux Security",
+            "CTF Challenge Development"
+          ]
+        },
+        {
+          "name": "Tools",
+          "highlight": "Tools",
+          "items": [
+            "Docker",
+            "Snort",
+            "Virtual Machines",
+            "SQLite",
+            "Wireshark",
+            "Fail2ban",
+            "iptables"
+          ]
+        },
+        {
+          "name": "Soft Skills",
+          "highlight": "Soft Skills",
+          "items": [
+            "Leadership",
+            "Teamwork",
+            "Communication",
+            "Adaptability",
+            "Organization"
+          ]
+        },
+        {
+          "name": "Web Development",
+          "highlight": "Web",
+          "items": ["NodeJS", "JavaScript", "Express-Handlebars"]
+        },
+        {
+          "name": "Virtualization",
+          "highlight": "Virtualization",
+          "items": ["Docker Compose"]
+        }
+      ]
+    }
   },
   "publications": {
     "index": 3,
@@ -216,7 +281,7 @@
         "platform": "IEEE NFV-SDN 2025",
         "date": "2025",
         "type": "Conference Paper",
-        "image": "",
+        "image": "/images/magazine.png",
         "tags": ["5G", "IDS/IPS", "Security Testbed"]
       }
     ]
@@ -264,7 +329,52 @@
         ],
         "tags": ["Teaching", "Labs", "University"]
       }
-    ]
+    ],
+    "more": {
+      "index": 4,
+      "enabled": true,
+      "title": "Work Experience",
+      "highlight": "Experience",
+      "items": [
+        {
+          "id": 1,
+          "title": "Cybersecurity Research Associate",
+          "period": "April 2024 — Present",
+          "company": "University of Patras",
+          "location": "Patras, Greece",
+          "description": [
+            "Research and engineering for security experimentation and training environments",
+            "Contribute to technical documentation, demos, and research outputs",
+            "Build automation and tooling in Python; containerize deployments with Docker/Kubernetes"
+          ],
+          "tags": ["5G Security", "Python", "Docker", "Kubernetes", "Research"]
+        },
+        {
+          "id": 2,
+          "title": "Lab Assistant — Database Management",
+          "period": "Oct 2023 — Jan 2024",
+          "company": "University of Patras",
+          "location": "Patras, Greece",
+          "description": [
+            "Supervised weekly labs for 40 students, assisting with SQL and database concepts",
+            "Provided on-the-spot debugging, problem-solving and guidance"
+          ],
+          "tags": ["Teaching", "Labs", "University"]
+        },
+        {
+          "id": 3,
+          "title": "Lab Assistant — Website Development",
+          "period": "Feb 2023 — Present",
+          "company": "University of Patras",
+          "location": "Patras, Greece",
+          "description": [
+            "Led 2-hour weekly labs for 40+ students covering Node.js, Handlebars, CSS and JavaScript",
+            "Answered technical questions and supported project development"
+          ],
+          "tags": ["Teaching", "Labs", "University"]
+        }
+      ]
+    }
   },
   "education": {
     "index": 5,
@@ -280,7 +390,23 @@
         "duration": "2019 - Present",
         "location": "Patras, Greece"
       }
-    ]
+    ],
+    "more": {
+      "index": 5,
+      "enabled": true,
+      "title": "Education",
+      "highlight": "Education",
+      "items": [
+        {
+          "degree": "Integrated Master",
+          "stream": "Electrical and Computer Engineering",
+          "institute": "University of Patras",
+          "result": "",
+          "duration": "2019 - Present",
+          "location": "Patras, Greece"
+        }
+      ]
+    }
   },
   "projects": {
     "index": 6,
@@ -395,7 +521,122 @@
         "technologies": ["Python", "steganography", "networking"],
         "type": "Project"
       }
-    ]
+    ],
+    "more": {
+      "index": 6,
+      "enabled": true,
+      "title": "Featured Projects",
+      "highlight": "Projects",
+      "items": [
+        {
+          "title": "IOT Project",
+          "description": "An infrastructure managing IOT tracker and buttons, connected to Fiware. It consists of 2 servers used for IOT communication, an express website server, a temporary server for the database and an MQTT publisher for virtual sensors.",
+          "githubLink": "https://github.com/nikolasfil/IOT-Project-2023",
+          "liveLink": "",
+          "technologies": [
+            "Docker",
+            "API",
+            "NodeJs",
+            "CSS",
+            "Javascript",
+            "Express Handlebars",
+            "SQLite",
+            "Python",
+            "MQTT Broker",
+            "Flask Framework"
+          ],
+          "type": "Project"
+        },
+        {
+          "title": "Simulating Attack on a Computer System",
+          "description": "A vulnerability assessment of a virtual machine. To gain access to the machine, four steps were followed: enumeration of the ports, identifying vulnerabilities, exploiting the vulnerabilities and elevating privileges for root user access.",
+          "githubLink": "https://github.com/nikolasfil/ComputerSecurityProject",
+          "liveLink": "",
+          "technologies": [
+            "nmap",
+            "hydra",
+            "johnny",
+            "linux",
+            "enumeration",
+            "zip-cracking",
+            "exploit-db"
+          ],
+          "type": "Project"
+        },
+        {
+          "title": "Web Server Hardening",
+          "description": "Setting up and securing a Linux web server. Using a virtual machine, set up a Linux web server using a headless Debian distro, configured the firewall and a fail2ban system to prevent brute force attacks, learned basic concepts of private-public key cryptography for more secure communication, set up a cloud instance, configured a custom DNS server and attempted a DNS caching attack from an external attacker's point of view.",
+          "githubLink": "https://github.com/nikolasfil/ModernCyberApplications",
+          "liveLink": "",
+          "technologies": [
+            "linux",
+            "firewall",
+            "iptables",
+            "fail2ban",
+            "virtual-machine",
+            "ssh",
+            "openssl",
+            "dns-caching",
+            "dns attacks",
+            "networking",
+            "cloud"
+          ],
+          "type": "Project"
+        },
+        {
+          "title": "Fullstack website Development: Bilbo",
+          "description": "Bilbo is a website managing libraries. Developed using Node.js, Handlebars and SQLite as the database model.",
+          "githubLink": "https://github.com/nikolasfil/Bilbo",
+          "liveLink": "https://bilbolibrary.herokuapp.com/",
+          "technologies": [
+            "HTML",
+            "CSS",
+            "Node.js",
+            "Express",
+            "Express.js",
+            "Handlebars.js",
+            "SQLite",
+            "Full-Stack Development",
+            "JavaScript",
+            "SQL"
+          ],
+          "type": "Project"
+        },
+        {
+          "title": "Advanced Programming Techniques Project",
+          "description": "A three part project used to demonstrate code testing, version control with git and GitHub, and dockerization using an MQTT server.",
+          "githubLink": "https://github.com/nikolasfil/AdvancedProgrammingProject",
+          "liveLink": "",
+          "technologies": [
+            "python",
+            "testing",
+            "docker",
+            "git",
+            "github",
+            "networking",
+            "http",
+            "mqtt"
+          ],
+          "type": "Project"
+        },
+        {
+          "title": "Database Project",
+          "description": "A command line application managing charging stations for electrical cars. The database model is written in SQLite; the application and database management are in Python.",
+          "githubLink": "https://github.com/nikolasfil/Database-Charging-Stations",
+          "liveLink": "",
+          "technologies": ["SQLite", "Python (Programming Language)", "SQL"],
+          "type": "Project"
+        },
+        {
+          "title": "CTF Challenges",
+          "description": "Created Capture The Flag challenges in the categories Miscellaneous and Forensics to teach practical cybersecurity skills.",
+          "githubLink": "https://github.com/nikolasfil/CTF",
+          "liveLink": "",
+          "technologies": ["Python", "steganography", "networking"],
+          "type": "Project"
+        }
+      ]
+    }
   },
   "achievements": {
     "index": 7,
@@ -427,10 +668,41 @@
         "icon": "",
         "url": ""
       }
-    ]
+    ],
+    "more": {
+      "index": 7,
+      "enabled": true,
+      "title": "Highlights",
+      "highlight": "Highlights",
+      "description": [
+        "Executive Chair — IEEE Student Branch University of Patras (team of 25+ volunteers)",
+        "Cybersecurity Study Group Coordinator — IEEE SB UPatras (hands-on training & mentoring)",
+        "CTF Challenge Author & Organizer — UniHack 2025 CTF (University of Patras)",
+        "Selected competition results:",
+        "GRCSC CTF Competition 2025 — 2nd",
+        "ReplyCode Challenge 2025 — 249th",
+        "HTB Cyber Apocalypse CTF Competition 2025 — 434th",
+        "NTUA Hack3.0 CTF Competition — 2nd",
+        "University CTF 2024: Binary Badlands — 125th",
+        "NTUA Hack2.0 CTF Competition — 2nd"
+      ],
+      "certifications": [
+        {
+          "name": "Reverse Engineering 101",
+          "issuer": "Kaspersky, Computer and Network Security",
+          "icon": "",
+          "url": ""
+        },
+        {
+          "name": "SQL Injection Attacks",
+          "issuer": "EC-Council, codered",
+          "icon": "",
+          "url": ""
+        }
+      ]
+    }
   },
   "testimonials": {
-    "index": 8,
     "enabled": false,
     "title": "Client Testimonials",
     "highlight": "Testimonials",
@@ -479,7 +751,52 @@
         "url": "mailto:filippatos.nikolas@gmail.com",
         "icon": "FiMail"
       }
-    ]
+    ],
+    "more": {
+      "index": 190,
+      "enabled": true,
+      "title": "Get In Touch",
+      "highlight": "Contact",
+      "email": "filippatos.nikolas@gmail.com",
+      "location": "Patras, Greece",
+      "socialLinks": [
+        {
+          "name": "GitHub",
+          "url": "https://github.com/nikolasfil",
+          "icon": "FiGithub"
+        },
+        {
+          "name": "LinkedIn",
+          "url": "https://www.linkedin.com/in/nikolas-filippatos/",
+          "icon": "FiLinkedin"
+        },
+        {
+          "name": "TryHackMe",
+          "url": "https://tryhackme.com/p/nikolasfil",
+          "icon": "SiTryhackme"
+        },
+        {
+          "name": "HackTheBox",
+          "url": "https://app.hackthebox.com/profile/1057635",
+          "icon": "SiHackthebox"
+        },
+        {
+          "name": "picoCTF",
+          "url": "https://play.picoctf.org/users/nikolasfil",
+          "icon": "FiFlag"
+        },
+        {
+          "name": "CTFlearn",
+          "url": "https://ctflearn.com/user/nikolasfil",
+          "icon": "FiFlag"
+        },
+        {
+          "name": "Email",
+          "url": "mailto:filippatos.nikolas@gmail.com",
+          "icon": "FiMail"
+        }
+      ]
+    }
   },
   "contactForm": {
     "emailJsConfig": {
@@ -567,6 +884,7 @@
       "defaultSource": "direct"
     }
   },
+
   "customSections": [
     {
       "index": 11,
