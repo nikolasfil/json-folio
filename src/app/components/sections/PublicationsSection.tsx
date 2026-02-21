@@ -10,66 +10,55 @@ import { useRouter } from "next/navigation";
 import { parseText } from "../../utils/textParser";
 
 interface PublicationsSectionProps {
-  publications: PortfolioData["publications"];
+  publications: PortfolioData["publications"] & { more?: any[] };
 }
 
-interface PublicationImageProps {
-  image?: string;
-  title: string;
-}
+export default function PublicationsSection({
+  publications,
+}: PublicationsSectionProps) {
+  // Helper component for publication image
+  function PublicationImage({
+    image,
+    title,
+  }: {
+    image: string;
+    title: string;
+  }) {
+    return (
+      <Image
+        src={image || ""}
+        alt={title}
+        width={64}
+        height={64}
+        className="rounded-lg"
+      />
+    );
+  }
 
-function PublicationImage({ image, title }: PublicationImageProps) {
-  const [imageError, setImageError] = useState(false);
+  // Section title parsing
+  const title = publications.title || "Publications";
+  const highlightIndex = title.indexOf(publications.highlight || "");
+  const titleBefore =
+    highlightIndex >= 0 ? title.slice(0, highlightIndex) : title;
+  const titleAfter =
+    highlightIndex >= 0
+      ? title.slice(highlightIndex + (publications.highlight?.length || 0))
+      : "";
 
-  const showFallback = !image || imageError;
-
-  return (
-    <div className="relative w-full md:w-40 h-24 bg-gray-700 rounded-lg overflow-hidden hidden md:block">
-      {image && !imageError && (
-        <Image
-          src={image}
-          alt={title}
-          fill
-          className="object-contain"
-          sizes="(max-width: 768px) 100vw, 192px"
-          onError={() => setImageError(true)}
-        />
-      )}
-      {/* Default Article SVG Fallback */}
-      {showFallback && (
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center text-gray-400">
-            <FiFileText className="w-12 h-12 mx-auto mb-2" />
-            <span className="text-xs font-medium"></span> {/*Here: Can be added 'Article as a Text'*/}
-          </div>
-        </div>
-      )}
-    </div>
-  );
-}
-
-export default function PublicationsSection({ publications }: PublicationsSectionProps) {
-  if (!publications.enabled) return null;
-
-  const router = useRouter();
+  // Displayed items logic
+  const displayedItems = publications.items || [];
+  const hasMore =
+    Array.isArray(publications.more) && publications.more.length > 0;
   const [isNavigating, setIsNavigating] = useState(false);
+  const showMoreText = "Show More";
+  const loadingText = "Loading...";
+  const router = useRouter();
 
-  const displayLimit = publications.displayLimit ?? 3;
-  const displayedItems = publications.items.slice(0, displayLimit);
-  const hasMore = publications.items.length > displayLimit;
-  const showMoreText = publications.showMoreText ?? "Show More";
-  const loadingText = publications.loadingText ?? "Fetching publications";
-
-  // Split title to highlight the highlight part
-  const highlightIndex = publications.title.indexOf(publications.highlight);
-  const titleBefore = highlightIndex >= 0 ? publications.title.substring(0, highlightIndex) : publications.title;
-  const titleAfter = highlightIndex >= 0 ? publications.title.substring(highlightIndex + publications.highlight.length) : '';
-
-  const handleShowMoreClick = () => {
+  function handleShowMoreClick() {
     setIsNavigating(true);
-    router.push("/publications");
-  };
-
+    router.push("/publications/page");
+  }
+  // ...existing code...
   return (
     <>
       <section id="publications" className="py-10">
@@ -81,7 +70,9 @@ export default function PublicationsSection({ publications }: PublicationsSectio
           viewport={{ once: true }}
         >
           {titleBefore}
-          {highlightIndex >= 0 && <span className="text-purple-400">{publications.highlight}</span>}
+          {highlightIndex >= 0 && (
+            <span className="text-purple-400">{publications.highlight}</span>
+          )}
           {titleAfter}
         </motion.h2>
 
@@ -96,11 +87,12 @@ export default function PublicationsSection({ publications }: PublicationsSectio
               viewport={{ once: true }}
             >
               <div className="flex flex-col md:flex-row gap-3 md:gap-4 items-start">
-                {/* Image Section - Hidden on mobile */}
                 <div className="flex-shrink-0">
-                  <PublicationImage image={publication.image} title={publication.title} />
+                  <PublicationImage
+                    image={publication.image ?? ""}
+                    title={publication.title}
+                  />
                 </div>
-
                 {/* Content Section */}
                 <div className="flex-1 min-w-0 space-y-1.5">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
@@ -112,19 +104,20 @@ export default function PublicationsSection({ publications }: PublicationsSectio
                         className="flex items-center gap-2 group"
                       >
                         {publication.title}
-                        <FiExternalLink className="w-4 h-4 text-purple-300" aria-hidden="true" />
+                        <FiExternalLink
+                          className="w-4 h-4 text-purple-300"
+                          aria-hidden="true"
+                        />
                       </a>
                     </h3>
                     <span className="text-xs tracking-wide uppercase text-gray-400 bg-gray-800/80 px-3 py-1 rounded-full hidden md:inline-block">
                       {publication.type}
                     </span>
                   </div>
-
                   {/* Description - Hidden on mobile */}
                   <div className="text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed max-h-20 overflow-hidden">
                     {parseText(publication.description)}
                   </div>
-
                   <div className="flex flex-col gap-1.5 md:flex-row md:items-center md:justify-between">
                     <div className="flex flex-wrap gap-2 flex-1 min-w-0">
                       {publication.tags.map((tag, tagIndex) => (
@@ -169,7 +162,15 @@ export default function PublicationsSection({ publications }: PublicationsSectio
           </motion.div>
         )}
       </section>
-
+      {/* Read More Button at the bottom */}
+      <div className="mt-8 flex justify-center">
+        <a
+          href="/publications"
+          className="px-6 py-2 bg-purple-500 text-white rounded-lg shadow hover:bg-purple-600 transition-all duration-200 font-semibold"
+        >
+          Read More
+        </a>
+      </div>
       {isNavigating && (
         <div className="fixed inset-0 z-50">
           <Loading text={loadingText} />
