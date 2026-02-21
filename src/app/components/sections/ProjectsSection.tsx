@@ -3,7 +3,10 @@ import type { PortfolioData } from "../../types/portfolio-data.type";
 import dynamic from "next/dynamic";
 import React, { Suspense } from "react";
 
-const ProjectCarousel = dynamic(() => import("../ProjectCarousel"), { ssr: false, loading: () => <div>Loading...</div> });
+const ProjectCarousel = dynamic(() => import("../ProjectCarousel"), {
+  ssr: false,
+  loading: () => <div>Loading...</div>,
+});
 
 interface ProjectsSectionProps {
   projects: PortfolioData["projects"];
@@ -32,4 +35,4 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
       </div>
     </section>
   );
-} 
+}

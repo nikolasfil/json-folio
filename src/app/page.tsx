@@ -2,7 +2,7 @@
 
 import { useScroll, useTransform } from "framer-motion";
 import { useState, useEffect } from "react";
-import Script from 'next/script';
+import Script from "next/script";
 import type { PortfolioData } from "./types/portfolio-data.type";
 import { useActiveSection } from "./hooks/useActiveSection";
 import { trackVisit } from "./functions/TrackVisit";
@@ -11,19 +11,56 @@ import Navbar from "./components/Navbar";
 import { AboutSection } from "./components/sections";
 import dynamic from "next/dynamic";
 import React, { Suspense } from "react";
+import { addSectionGlobal } from "./utils/addSection";
 
-const SkillsSection = dynamic(() => import("./components/sections/SkillsSection"), { ssr: false, loading: () => <div /> });
-const PublicationsSection = dynamic(() => import("./components/sections/PublicationsSection"), { ssr: false, loading: () => <div /> });
-const ExperienceSection = dynamic(() => import("./components/sections/ExperienceSection"), { ssr: false, loading: () => <div /> });
-const EducationSection = dynamic(() => import("./components/sections/EducationSection"), { ssr: false, loading: () => <div /> });
-const ProjectsSection = dynamic(() => import("./components/sections/ProjectsSection"), { ssr: false, loading: () => <div /> });
-const AchievementsSection = dynamic(() => import("./components/sections/AchievementsSection"), { ssr: false, loading: () => <div /> });
-const ContactSection = dynamic(() => import("./components/sections/ContactSection"), { ssr: false, loading: () => <div /> });
-const QuoteSection = dynamic(() => import("./components/sections/QuoteSection"), { ssr: false, loading: () => <div /> });
-const FooterSection = dynamic(() => import("./components/sections/FooterSection"), { ssr: false, loading: () => <div /> });
-const CustomSections = dynamic(() => import("./components/sections/CustomSections"), { ssr: false, loading: () => <div /> });
-const BackgroundAnimation = dynamic(() => import("./components/sections/BackgroundAnimation"), { ssr: false, loading: () => <div /> });
-const TestimonialsSection = dynamic(() => import("./components/sections/TestimonialsSection"), { ssr: false, loading: () => <div /> });
+const SkillsSection = dynamic(
+  () => import("./components/sections/SkillsSection"),
+  { ssr: false, loading: () => <div /> },
+);
+const PublicationsSection = dynamic(
+  () => import("./components/sections/PublicationsSection"),
+  { ssr: false, loading: () => <div /> },
+);
+const ExperienceSection = dynamic(
+  () => import("./components/sections/ExperienceSection"),
+  { ssr: false, loading: () => <div /> },
+);
+const EducationSection = dynamic(
+  () => import("./components/sections/EducationSection"),
+  { ssr: false, loading: () => <div /> },
+);
+const ProjectsSection = dynamic(
+  () => import("./components/sections/ProjectsSection"),
+  { ssr: false, loading: () => <div /> },
+);
+const AchievementsSection = dynamic(
+  () => import("./components/sections/AchievementsSection"),
+  { ssr: false, loading: () => <div /> },
+);
+const ContactSection = dynamic(
+  () => import("./components/sections/ContactSection"),
+  { ssr: false, loading: () => <div /> },
+);
+const QuoteSection = dynamic(
+  () => import("./components/sections/QuoteSection"),
+  { ssr: false, loading: () => <div /> },
+);
+const FooterSection = dynamic(
+  () => import("./components/sections/FooterSection"),
+  { ssr: false, loading: () => <div /> },
+);
+const CustomSections = dynamic(
+  () => import("./components/sections/CustomSections"),
+  { ssr: false, loading: () => <div /> },
+);
+const BackgroundAnimation = dynamic(
+  () => import("./components/sections/BackgroundAnimation"),
+  { ssr: false, loading: () => <div /> },
+);
+const TestimonialsSection = dynamic(
+  () => import("./components/sections/TestimonialsSection"),
+  { ssr: false, loading: () => <div /> },
+);
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -40,17 +77,17 @@ export default function Home() {
     const fetchData = async () => {
       try {
         // Use local data.json in development, otherwise use the configured URL
-        const isDevelopment = process.env.NODE_ENV === 'development';
-        const url = isDevelopment 
-          ? '/archived/data.json' 
+        const isDevelopment = process.env.NODE_ENV === "development";
+        const url = isDevelopment
+          ? "/archived/data.json"
           : process.env.NEXT_PUBLIC_PORTFOLIO_DATA_URL;
-        
+
         const response = await fetch(url!);
-        if (!response.ok) throw new Error('Failed to fetch data');
+        if (!response.ok) throw new Error("Failed to fetch data");
         const jsonData = await response.json();
         setData(jsonData);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error);
       } finally {
         setLoading(false);
       }
@@ -60,10 +97,10 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    const hasTrackedVisit = sessionStorage.getItem('hasTrackedVisit');
+    const hasTrackedVisit = sessionStorage.getItem("hasTrackedVisit");
     if (!hasTrackedVisit && data?.tracking?.enabled) {
       trackVisit(data.tracking);
-      sessionStorage.setItem('hasTrackedVisit', 'true');
+      sessionStorage.setItem("hasTrackedVisit", "true");
     }
   }, [data]);
 
@@ -78,33 +115,26 @@ export default function Home() {
   if (!data) {
     return (
       <div className="min-h-screen bg-gray-900 flex items-center justify-center">
-        <div className="text-white text-xl">Failed to load data. Please try again later.</div>
+        <div className="text-white text-xl">
+          Failed to load data. Please try again later.
+        </div>
       </div>
     );
   }
 
-  const sectionsToRender: Array<{ id: string; index: number; element: React.ReactNode }> = [];
-  const resolveIndex = (value?: number) =>
-    typeof value === "number" ? value : Number.MAX_SAFE_INTEGER;
+  const sectionsToRender: Array<{
+    id: string;
+    index: number;
+    element: React.ReactNode;
+  }> = [];
 
-  const addSection = ({
-    enabled,
-    id,
-    index,
-    element,
-  }: {
+  // Use global addSection utility
+  const addSection = (args: {
     enabled: boolean;
     id: string;
     index?: number;
     element: React.ReactNode;
-  }) => {
-    if (!enabled) return;
-    sectionsToRender.push({
-      id,
-      index: resolveIndex(index),
-      element,
-    });
-  };
+  }) => addSectionGlobal(args, sectionsToRender);
 
   addSection({
     enabled: data.intro.enabled,
@@ -239,25 +269,26 @@ export default function Home() {
   return (
     <>
       {/* Google Analytics */}
-      {data.tracking?.googleAnalytics?.enabled && data.tracking.googleAnalytics.googleTag && (
-        <>
-          <Script
-            src={`https://www.googletagmanager.com/gtag/js?id=${data.tracking.googleAnalytics.googleTag}`}
-            strategy="afterInteractive"
-          />
-          <Script id="google-analytics" strategy="afterInteractive">
-            {`
+      {data.tracking?.googleAnalytics?.enabled &&
+        data.tracking.googleAnalytics.googleTag && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${data.tracking.googleAnalytics.googleTag}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', '${data.tracking.googleAnalytics.googleTag}');
             `}
-          </Script>
-        </>
-      )}
+            </Script>
+          </>
+        )}
 
       <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white overflow-x-hidden relative">
-        <Suspense fallback={<div />}> 
+        <Suspense fallback={<div />}>
           <BackgroundAnimation
             backgroundX={backgroundX}
             backgroundY={backgroundY}
@@ -275,14 +306,18 @@ export default function Home() {
         )}
 
         <main className="relative z-10 pt-20 md:pt-24 pb-12 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 max-w-[95%] 2xl:max-w-[1600px] mx-auto w-full">
-          <div className="space-y-10 md:space-y-8"> { /* Added margin between sections - Reduced the margin between sections from here */}
+          <div className="space-y-10 md:space-y-8">
+            {" "}
+            {/* Added margin between sections - Reduced the margin between sections from here */}
             {orderedSections.map((section) => (
-              <React.Fragment key={section.id}>{section.element}</React.Fragment>
+              <React.Fragment key={section.id}>
+                {section.element}
+              </React.Fragment>
             ))}
           </div>
         </main>
 
-        <Suspense fallback={<div />}> 
+        <Suspense fallback={<div />}>
           <FooterSection footer={data.footer} />
         </Suspense>
       </div>

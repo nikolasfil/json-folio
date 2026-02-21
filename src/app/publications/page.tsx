@@ -2,7 +2,7 @@
 
 import { useScroll, useTransform } from "framer-motion";
 import { useState, useEffect } from "react";
-import Head from 'next/head';
+import Head from "next/head";
 import type { PortfolioData } from "../types/portfolio-data.type";
 import Loading from "../components/Loading";
 import Navbar from "../components/Navbar";
@@ -14,8 +14,14 @@ import dynamic from "next/dynamic";
 import React, { Suspense } from "react";
 import { parseText } from "../utils/textParser";
 
-const BackgroundAnimation = dynamic(() => import("../components/sections/BackgroundAnimation"), { ssr: false, loading: () => <div /> });
-const FooterSection = dynamic(() => import("../components/sections/FooterSection"), { ssr: false, loading: () => <div /> });
+const BackgroundAnimation = dynamic(
+  () => import("../components/sections/BackgroundAnimation"),
+  { ssr: false, loading: () => <div /> },
+);
+const FooterSection = dynamic(
+  () => import("../components/sections/FooterSection"),
+  { ssr: false, loading: () => <div /> },
+);
 
 interface PublicationImageProps {
   image?: string;
@@ -44,7 +50,8 @@ function PublicationImage({ image, title }: PublicationImageProps) {
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center text-gray-400">
             <FiFileText className="w-12 h-12 mx-auto mb-2" />
-            <span className="text-xs font-medium"></span> {/*Here: Can be added 'Article as a Text'*/}
+            <span className="text-xs font-medium"></span>{" "}
+            {/*Here: Can be added 'Article as a Text'*/}
           </div>
         </div>
       )}
@@ -66,17 +73,17 @@ export default function PublicationsPage() {
     const fetchData = async () => {
       try {
         // Use local data.json in development, otherwise use the configured URL
-        const isDevelopment = process.env.NODE_ENV === 'development';
-        const url = isDevelopment 
-          ? '/archived/data.json' 
+        const isDevelopment = process.env.NODE_ENV === "development";
+        const url = isDevelopment
+          ? "/archived/data.json"
           : process.env.NEXT_PUBLIC_PORTFOLIO_DATA_URL;
-        
+
         const response = await fetch(url!);
-        if (!response.ok) throw new Error('Failed to fetch data');
+        if (!response.ok) throw new Error("Failed to fetch data");
         const jsonData = await response.json();
         setData(jsonData);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error);
       } finally {
         setLoading(false);
       }
@@ -96,7 +103,9 @@ export default function PublicationsPage() {
   if (!data || !data.publications.enabled) {
     return (
       <div className="min-h-screen bg-gray-900 flex items-center justify-center">
-        <div className="text-white text-xl">Failed to load publications. Please try again later.</div>
+        <div className="text-white text-xl">
+          Failed to load publications. Please try again later.
+        </div>
       </div>
     );
   }
@@ -106,13 +115,18 @@ export default function PublicationsPage() {
   return (
     <>
       <Head>
-        <title>{publications.title} | {data.meta.title}</title>
-        <meta name="description" content={`All ${publications.title.toLowerCase()}`} />
+        <title>
+          {publications.title} | {data.meta.title}
+        </title>
+        <meta
+          name="description"
+          content={`All ${publications.title.toLowerCase()}`}
+        />
         <link rel="icon" href={data.meta.favicon} />
       </Head>
 
       <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white overflow-x-hidden relative">
-        <Suspense fallback={<div />}> 
+        <Suspense fallback={<div />}>
           <BackgroundAnimation
             backgroundX={backgroundX}
             backgroundY={backgroundY}
@@ -154,13 +168,27 @@ export default function PublicationsPage() {
             transition={{ duration: 0.5 }}
           >
             {(() => {
-              const highlightIndex = publications.title.indexOf(publications.highlight);
-              const titleBefore = highlightIndex >= 0 ? publications.title.substring(0, highlightIndex) : publications.title;
-              const titleAfter = highlightIndex >= 0 ? publications.title.substring(highlightIndex + publications.highlight.length) : '';
+              const highlightIndex = publications.title.indexOf(
+                publications.highlight,
+              );
+              const titleBefore =
+                highlightIndex >= 0
+                  ? publications.title.substring(0, highlightIndex)
+                  : publications.title;
+              const titleAfter =
+                highlightIndex >= 0
+                  ? publications.title.substring(
+                      highlightIndex + publications.highlight.length,
+                    )
+                  : "";
               return (
                 <>
                   {titleBefore}
-                  {highlightIndex >= 0 && <span className="text-purple-400">{publications.highlight}</span>}
+                  {highlightIndex >= 0 && (
+                    <span className="text-purple-400">
+                      {publications.highlight}
+                    </span>
+                  )}
                   {titleAfter}
                 </>
               );
@@ -177,11 +205,14 @@ export default function PublicationsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                >
+              >
                 <div className="flex flex-col md:flex-row gap-4 md:gap-5 items-start">
                   {/* Image Section - Hidden on mobile */}
                   <div className="flex-shrink-0">
-                    <PublicationImage image={publication.image} title={publication.title} />
+                    <PublicationImage
+                      image={publication.image}
+                      title={publication.title}
+                    />
                   </div>
 
                   {/* Content Section */}
@@ -195,7 +226,10 @@ export default function PublicationsPage() {
                           className="flex items-center gap-2 group"
                         >
                           {publication.title}
-                          <FiExternalLink className="w-4 h-4 text-purple-300" aria-hidden="true" />
+                          <FiExternalLink
+                            className="w-4 h-4 text-purple-300"
+                            aria-hidden="true"
+                          />
                         </a>
                       </h3>
                       <span className="text-xs tracking-wide uppercase text-gray-400 bg-gray-800/80 px-3 py-1 rounded-full hidden md:inline-block border border-gray-700">
@@ -238,11 +272,10 @@ export default function PublicationsPage() {
           </div>
         </main>
 
-        <Suspense fallback={<div />}> 
+        <Suspense fallback={<div />}>
           <FooterSection footer={data.footer} />
         </Suspense>
       </div>
     </>
   );
 }
-

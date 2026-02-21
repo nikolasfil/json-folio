@@ -413,6 +413,7 @@
     "enabled": true,
     "title": "Featured Projects",
     "highlight": "Projects",
+    "homepage": ["iotproject", "computerattack"],
     "items": [
       {
         "title": "IOT Project",
@@ -431,7 +432,8 @@
           "MQTT Broker",
           "Flask Framework"
         ],
-        "type": "Project"
+        "type": "Project",
+        "nickname": "iotproject"
       },
       {
         "title": "Simulating Attack on a Computer System",
@@ -447,7 +449,8 @@
           "zip-cracking",
           "exploit-db"
         ],
-        "type": "Project"
+        "type": "Project",
+        "nickname": "computerattack"
       },
       {
         "title": "Web Server Hardening",
@@ -467,13 +470,14 @@
           "networking",
           "cloud"
         ],
-        "type": "Project"
+        "type": "Project",
+        "nickname": "computerattack"
       },
       {
         "title": "Fullstack website Development: Bilbo",
         "description": "Bilbo is a website managing libraries. Developed using Node.js, Handlebars and SQLite as the database model.",
         "githubLink": "https://github.com/nikolasfil/Bilbo",
-        "liveLink": "https://bilbolibrary.herokuapp.com/",
+        "liveLink": "",
         "technologies": [
           "HTML",
           "CSS",
@@ -486,7 +490,8 @@
           "JavaScript",
           "SQL"
         ],
-        "type": "Project"
+        "type": "Project",
+        "nickname": "bilbo"
       },
       {
         "title": "Advanced Programming Techniques Project",
@@ -503,7 +508,8 @@
           "http",
           "mqtt"
         ],
-        "type": "Project"
+        "type": "Project",
+        "nickname": "advancedprogramming"
       },
       {
         "title": "Database Project",
@@ -519,7 +525,8 @@
         "githubLink": "https://github.com/nikolasfil/CTF",
         "liveLink": "",
         "technologies": ["Python", "steganography", "networking"],
-        "type": "Project"
+        "type": "Project",
+        "nickname": "ctfchallenges"
       }
     ],
     "more": {
