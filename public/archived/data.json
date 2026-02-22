@@ -207,10 +207,6 @@
       }
     ],
     "more": {
-      "index": 2,
-      "enabled": true,
-      "title": "Skills",
-      "highlight": "Skills",
       "categories": [
         {
           "name": "Programming",
