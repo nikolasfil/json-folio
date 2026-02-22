@@ -3,14 +3,25 @@ import type { PortfolioData } from "../../types/portfolio-data.type";
 import { useState } from "react";
 import Loading from "../Loading";
 import { useRouter } from "next/navigation";
+import { FiExternalLink } from "react-icons/fi";
 
 interface SkillsSectionProps {
   skills: PortfolioData["skills"];
+  /**
+   * - "home": show a compact view + navigation affordances
+   * - "page": show the full content without "Read more" UI
+   */
+  variant?: "home" | "page";
 }
 
-export default function SkillsSection({ skills }: SkillsSectionProps) {
+export default function SkillsSection({
+  skills,
+  variant = "home",
+}: SkillsSectionProps) {
   if (!skills.enabled) return null;
-  const hasMore = Array.isArray(skills.more) && skills.more.length > 0;
+
+  const isHome = variant === "home";
+  const hasMore = Boolean(skills.more?.enabled);
   const displayedItems = skills.categories || [];
 
   const [isNavigating, setIsNavigating] = useState(false);
@@ -20,7 +31,7 @@ export default function SkillsSection({ skills }: SkillsSectionProps) {
 
   function handleShowMoreClick() {
     setIsNavigating(true);
-    router.push("/skills/page");
+    router.push("/skills");
   }
 
   return (
@@ -78,8 +89,48 @@ export default function SkillsSection({ skills }: SkillsSectionProps) {
           </div>
         </motion.div>
 
+        {/* Extended skills (standalone page) */}
+        {variant === "page" && skills.more?.enabled && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.25 }}
+            viewport={{ once: true }}
+            className="mt-6 bg-gray-800/30 rounded-xl border border-gray-700/60 p-6"
+          >
+            <h3 className="text-xl font-semibold mb-4 text-center">
+              {skills.more.title.split(skills.more.highlight)[0]}
+              <span className="text-purple-400"> {skills.more.highlight}</span>
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {skills.more.categories.map((category, catIndex) => (
+                <div key={catIndex} className="space-y-3">
+                  <h4 className="text-sm md:text-base font-semibold text-purple-300">
+                    {category.name.split(category.highlight)[0]}
+                    <span className="text-purple-400"> {category.highlight}</span>
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {category.items.map((skill, i) => (
+                      <motion.span
+                        key={i}
+                        initial={{ opacity: 0, y: 5 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.03 * i }}
+                        viewport={{ once: true }}
+                        className="text-xs bg-gray-700/40 text-gray-200 px-2 py-1 rounded-full border border-gray-600/70"
+                      >
+                        {skill}
+                      </motion.span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+
         {/* Show More Link */}
-        {hasMore && (
+        {isHome && hasMore && (
           <motion.div
             className="flex justify-end mt-4 md:mt-6"
             initial={{ opacity: 0, y: 20 }}
@@ -99,15 +150,17 @@ export default function SkillsSection({ skills }: SkillsSectionProps) {
           </motion.div>
         )}
       </section>
-      {/* Read More Button at the bottom */}
-      <div className="mt-8 flex justify-center">
-        <a
-          href="/skills"
-          className="px-6 py-2 bg-purple-500 text-white rounded-lg shadow hover:bg-purple-600 transition-all duration-200 font-semibold"
-        >
-          Read More
-        </a>
-      </div>
+
+      {isHome && (
+        <div className="mt-8 flex justify-center">
+          <a
+            href="/skills"
+            className="px-6 py-2 bg-purple-500 text-white rounded-lg shadow hover:bg-purple-600 transition-all duration-200 font-semibold"
+          >
+            Read More
+          </a>
+        </div>
+      )}
       {isNavigating && (
         <div className="fixed inset-0 z-50">
           <Loading text={loadingText} />

@@ -5,12 +5,12 @@ import Loading from "../components/Loading";
 import PageShell from "../components/PageShell";
 import { usePortfolioData } from "../hooks/usePortfolioData";
 
-const EducationSection = dynamic(
-  () => import("../components/sections/EducationSection"),
+const VolunteeringSection = dynamic(
+  () => import("../components/sections/VolunteeringSection"),
   { ssr: false, loading: () => <div /> },
 );
 
-export default function EducationPage() {
+export default function VolunteeringPage() {
   const { data, loading, error } = usePortfolioData();
 
   if (loading) {
@@ -21,11 +21,11 @@ export default function EducationPage() {
     );
   }
 
-  if (!data || !data.education?.enabled) {
+  if (!data || !data.volunteering?.enabled) {
     return (
       <div className="min-h-screen bg-gray-900 flex items-center justify-center">
         <div className="text-white text-xl">
-          Failed to load education{error ? `: ${error}` : "."}
+          Failed to load volunteering{error ? `: ${error}` : "."}
         </div>
       </div>
     );
@@ -34,10 +34,10 @@ export default function EducationPage() {
   return (
     <PageShell
       data={data}
-      title={data.education.title}
-      description={`All ${data.education.title.toLowerCase()}`}
+      title={data.volunteering.title}
+      description={`All ${data.volunteering.title.toLowerCase()}`}
     >
-      <EducationSection education={data.education} />
+      <VolunteeringSection volunteering={data.volunteering} />
     </PageShell>
   );
 }

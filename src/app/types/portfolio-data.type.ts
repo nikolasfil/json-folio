@@ -162,6 +162,26 @@ export interface PortfolioData {
       tags: string[];
     }[];
   };
+
+  /**
+   * Volunteering mirrors experience structure (timeline-ready).
+   * Optional for backward compatibility with older JSON.
+   */
+  volunteering?: {
+    enabled: boolean;
+    index?: number;
+    title: string;
+    highlight: string;
+    items: {
+      id: number;
+      title: string;
+      period: string;
+      company: string;
+      location: string;
+      description: string[];
+      tags: string[];
+    }[];
+  };
   education: {
     enabled: boolean;
     index?: number;

@@ -25,6 +25,10 @@ const ExperienceSection = dynamic(
   () => import("./components/sections/ExperienceSection"),
   { ssr: false, loading: () => <div /> },
 );
+const VolunteeringSection = dynamic(
+  () => import("./components/sections/VolunteeringSection"),
+  { ssr: false, loading: () => <div /> },
+);
 const EducationSection = dynamic(
   () => import("./components/sections/EducationSection"),
   { ssr: false, loading: () => <div /> },
@@ -179,6 +183,19 @@ export default function Home() {
     element: (
       <Suspense fallback={<div />}>
         <ExperienceSection experience={data.experience} />
+      </Suspense>
+    ),
+  });
+
+  addSection({
+    enabled: Boolean(data.volunteering?.enabled),
+    id: "volunteering",
+    index: data.volunteering?.index,
+    element: (
+      <Suspense fallback={<div />}>
+        {data.volunteering && (
+          <VolunteeringSection volunteering={data.volunteering} />
+        )}
       </Suspense>
     ),
   });

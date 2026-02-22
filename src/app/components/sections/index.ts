@@ -1,6 +1,7 @@
 export { default as AboutSection } from './AboutSection';
 export { default as SkillsSection } from './SkillsSection';
 export { default as ExperienceSection } from './ExperienceSection';
+export { default as VolunteeringSection } from './VolunteeringSection';
 export { default as EducationSection } from './EducationSection';
 export { default as PublicationsSection } from './PublicationsSection';
 export { default as ProjectsSection } from './ProjectsSection';

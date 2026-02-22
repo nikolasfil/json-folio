@@ -11,11 +11,17 @@ import { parseText } from "../../utils/textParser";
 
 interface PublicationsSectionProps {
   publications: PortfolioData["publications"] & { more?: any[] };
+  /**
+   * - "home": can limit items + shows navigation affordances
+   * - "page": shows all items without "Read more" UI
+   */
+  variant?: "home" | "page";
   showMore?: boolean;
 }
 
 export default function PublicationsSection({
   publications,
+  variant = "home",
   showMore = false,
 }: PublicationsSectionProps) {
   // Helper component for publication image
@@ -26,13 +32,21 @@ export default function PublicationsSection({
     image: string;
     title: string;
   }) {
+    if (!image) {
+      return (
+        <div className="w-16 h-16 rounded-lg bg-gray-700 flex items-center justify-center">
+          <FiFileText className="w-7 h-7 text-gray-300" />
+        </div>
+      );
+    }
+
     return (
       <Image
-        src={image || ""}
+        src={image}
         alt={title}
         width={64}
         height={64}
-        className="rounded-lg"
+        className="rounded-lg object-contain bg-gray-700"
       />
     );
   }
@@ -47,8 +61,12 @@ export default function PublicationsSection({
       ? title.slice(highlightIndex + (publications.highlight?.length || 0))
       : "";
 
-  // Displayed items logic
-  const displayedItems = publications.items || [];
+  const isHome = variant === "home";
+
+  // Displayed items logic (support optional displayLimit on home)
+  const allItems = publications.items || [];
+  const displayLimit = isHome && publications.displayLimit ? publications.displayLimit : undefined;
+  const displayedItems = typeof displayLimit === "number" ? allItems.slice(0, displayLimit) : allItems;
   // const hasMore =
   // Array.isArray(publications.more) && publications.more.length > 0;
   const [isNavigating, setIsNavigating] = useState(false);
@@ -58,7 +76,7 @@ export default function PublicationsSection({
 
   function handleShowMoreClick() {
     setIsNavigating(true);
-    router.push("/publications/page");
+    router.push("/publications");
   }
   // ...existing code...
   return (
@@ -144,7 +162,7 @@ export default function PublicationsSection({
         </div>
 
         {/* Show More Link */}
-        {showMore && (
+        {isHome && showMore && (
           <motion.div
             className="flex justify-end mt-4 md:mt-6"
             initial={{ opacity: 0, y: 20 }}
@@ -164,15 +182,17 @@ export default function PublicationsSection({
           </motion.div>
         )}
       </section>
-      {/* Read More Button at the bottom */}
-      <div className="mt-8 flex justify-center">
-        <a
-          href="/publications"
-          className="px-6 py-2 bg-purple-500 text-white rounded-lg shadow hover:bg-purple-600 transition-all duration-200 font-semibold"
-        >
-          Read More
-        </a>
-      </div>
+
+      {isHome && (
+        <div className="mt-8 flex justify-center">
+          <a
+            href="/publications"
+            className="px-6 py-2 bg-purple-500 text-white rounded-lg shadow hover:bg-purple-600 transition-all duration-200 font-semibold"
+          >
+            Read More
+          </a>
+        </div>
+      )}
       {isNavigating && (
         <div className="fixed inset-0 z-50">
           <Loading text={loadingText} />

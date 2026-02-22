@@ -1,31 +1,44 @@
-import React from "react";
-import data from "../../../public/archived/data.json";
+"use client";
 
-const AboutPage = () => {
-  // Example: Render more info from data.about.more
-  const more = data.intro?.more || [];
-  return (
-    <>
-      <main className="container mx-auto py-12">
-        <h1 className="text-3xl font-bold mb-6">About</h1>
-        <ul>
-          {more.map((item: string, idx: number) => (
-            <li key={idx} className="mb-4">
-              {item}
-            </li>
-          ))}
-        </ul>
-      </main>
-      <div className="mt-8 flex justify-center">
-        <a
-          href="/about/page"
-          className="px-6 py-2 bg-purple-500 text-white rounded-lg shadow hover:bg-purple-600 transition-all duration-200 font-semibold"
-        >
-          Read More
-        </a>
+import dynamic from "next/dynamic";
+import Loading from "../components/Loading";
+import PageShell from "../components/PageShell";
+import { usePortfolioData } from "../hooks/usePortfolioData";
+
+const AboutSection = dynamic(() => import("../components/sections/AboutSection"), {
+  ssr: false,
+  loading: () => <div />,
+});
+
+export default function AboutPage() {
+  const { data, loading, error } = usePortfolioData();
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-900 flex items-center justify-center">
+        <Loading />
       </div>
-    </>
-  );
-};
+    );
+  }
 
-export default AboutPage;
+  if (!data || !data.intro?.enabled) {
+    return (
+      <div className="min-h-screen bg-gray-900 flex items-center justify-center">
+        <div className="text-white text-xl">
+          Failed to load about{error ? `: ${error}` : "."}
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <PageShell data={data} title="About" description={data.meta.description}>
+      <AboutSection
+        intro={data.intro}
+        stats={data.stats}
+        socialLinks={data.contact.socialLinks}
+        tracking={data.tracking}
+      />
+    </PageShell>
+  );
+}
