@@ -135,6 +135,17 @@ export interface PortfolioData {
       highlight: string;
       items: string[];
     }[];
+    // TODO This needs to be configured
+    more: {
+      enabled: boolean;
+      title: string;
+      highlight: string;
+      categories: {
+        name: string;
+        highlight: string;
+        items: string[];
+      }[];
+    };
   };
   experience: {
     enabled: boolean;
@@ -247,7 +258,7 @@ export interface PortfolioData {
     title: string;
     enabled: boolean;
     index?: number;
-    type: 'info' | 'links' | 'button' | 'newsletter' | string;
+    type: "info" | "links" | "button" | "newsletter" | string;
     description?: string;
     eyebrow?: string;
     content: CustomSectionContent;
