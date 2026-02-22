@@ -11,10 +11,12 @@ import { parseText } from "../../utils/textParser";
 
 interface PublicationsSectionProps {
   publications: PortfolioData["publications"] & { more?: any[] };
+  showMore?: boolean;
 }
 
 export default function PublicationsSection({
   publications,
+  showMore = false,
 }: PublicationsSectionProps) {
   // Helper component for publication image
   function PublicationImage({
@@ -47,8 +49,8 @@ export default function PublicationsSection({
 
   // Displayed items logic
   const displayedItems = publications.items || [];
-  const hasMore =
-    Array.isArray(publications.more) && publications.more.length > 0;
+  // const hasMore =
+  // Array.isArray(publications.more) && publications.more.length > 0;
   const [isNavigating, setIsNavigating] = useState(false);
   const showMoreText = "Show More";
   const loadingText = "Loading...";
@@ -142,7 +144,7 @@ export default function PublicationsSection({
         </div>
 
         {/* Show More Link */}
-        {hasMore && (
+        {showMore && (
           <motion.div
             className="flex justify-end mt-4 md:mt-6"
             initial={{ opacity: 0, y: 20 }}
