@@ -887,7 +887,86 @@
       "defaultSource": "direct"
     }
   },
+  "volunteering": {
+    "enabled": true,
+    "index": 4,
+    "title": "Volunteering",
+    "highlight": "ing",
+    "items": [
+      {
+        "id": 1,
+        "title": "Executive Chair",
+        "company": "IEEE Student Branch University of Patras",
+        "period": "May 2023 — Sep 2024",
+        "description": [
+          "Managed 25 volunteers within a 100+ member branch",
+          "Organized events, external collaborations and community initiatives",
+          "As the Chair of the student branch, I am in charge of organizing and overseeing the executive committee(5 positions) , representing the branch in public events ,managing external affairs and keeping track of the overall progress of the organization .",
+          "The Computer Society Chapter also falls under my direct supervision, which consists of 4 scientific groups ( Programming, Competitive Programming, Cyber security, Quantum Computing ). I am in charge of the 4 coordinators, one for each SG, keeping close communication with them, assisting and advising them."
+        ],
+        "tags": [
+          "Leadership",
+          "Communication",
+          "Project Management",
+          "Teamwork"
+        ]
+      },
+      {
+        "id": 2,
 
+        "title": "Cybersecurity Study Group Coordinator",
+        "company": "IEEE Student Branch, University of Patras",
+        "period": "Oct 2023 — Sep 2024",
+        "description": [
+          "Led sessions for 15 students on vulnerability discovery and exploitation",
+          "Prepared hands-on labs and guided practical cybersecurity training",
+          "As a coordinator I am in charge of preparing for the meeting, finding useful material and challenges , presenting them , helping the group progress and assign homework to further the group's progress.",
+          "In the scientific group we are learning about cybersecurity,identifying vulnerabilities and exploiting them, learning tools and techniques through cybersecurity challenges, such as ctf, tryhackme, hackthebox .",
+          "As a coordinator I am in charge of preparing for the meeting, finding useful material and challenges , presenting them , helping the group progress and assign homework to further the group's progress. In the scientific group we are learning about cybersecurity,identifying vulnerabilities and exploiting them, learning tools and techniques through cybersecurity challenges, such as ctf, tryhackme, hackthebox ."
+        ],
+        "tags": ["Cybersecurity", "Teamwork", "Ethical Hacking"]
+      },
+      {
+        "id": 3,
+        "title": "Competitive Programming Coordinator",
+        "company": "IEEE Student Branch, University of Patras",
+        "period": "Feb 2022 — May 2023",
+        "description": [
+          "Coordinated weekly algorithmic problem-solving sessions for 20 students",
+          "Prepared participants for national and international programming contests",
+          "Coordinated meetings to learn about Competitive Programming and take part in competitions. Managed an average of 20 people per meeting. As group, we participated in 5 Programming Competitions"
+        ],
+        "tags": [
+          "Teaching ",
+          "Problem Solving ",
+          "Team Coordination ",
+          "Teamwork ",
+          "Python (Programming Language) ",
+          "Competitive Programming"
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Event Organizer and author",
+        "company": "ISSG, University of Patras",
+        "period": "December 13 2025",
+        "description": [
+          "Organized the Unihack 2025 CTF event, managing logistics and participant coordination in the University of Patras",
+          "Authored 6 CTF challenges in forensics and miscellaneous topics for the event"
+        ],
+        "urls": [
+          {
+            "label": "Unihack 2025 CTF",
+            "href": "https://huh.ctflib.eu/"
+          },
+          {
+            "label": "ISSG Unihack Page",
+            "href": "https://issg.gr/unihack2025"
+          }
+        ]
+      }
+    ]
+  },
   "customSections": [
     {
       "index": 11,
@@ -948,6 +1027,7 @@
       }
     }
   ],
+
   "custom_nick": {
     "competitions_full": {
       "team_name": "Competitive-Geeks",

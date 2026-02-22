@@ -65,8 +65,12 @@ export default function PublicationsSection({
 
   // Displayed items logic (support optional displayLimit on home)
   const allItems = publications.items || [];
-  const displayLimit = isHome && publications.displayLimit ? publications.displayLimit : undefined;
-  const displayedItems = typeof displayLimit === "number" ? allItems.slice(0, displayLimit) : allItems;
+  const displayLimit =
+    isHome && publications.displayLimit ? publications.displayLimit : undefined;
+  const displayedItems =
+    typeof displayLimit === "number"
+      ? allItems.slice(0, displayLimit)
+      : allItems;
   // const hasMore =
   // Array.isArray(publications.more) && publications.more.length > 0;
   const [isNavigating, setIsNavigating] = useState(false);
