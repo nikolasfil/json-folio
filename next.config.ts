@@ -1,17 +1,26 @@
 import type { NextConfig } from "next";
 
+// GitHub Pages project site lives at /<repo>, user site at /
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  // Required for GitHub Pages (static hosting)
+  output: "export",
+  trailingSlash: true,
+  // Make assets resolve correctly under /<repo>
+  basePath,
+  assetPrefix: basePath,
   images: {
     // Allow images from any external URL (both http and https)
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: '**',
+        protocol: "https",
+        hostname: "**",
       },
       {
-        protocol: 'http',
-        hostname: '**',
+        protocol: "http",
+        hostname: "**",
       },
     ],
   },
