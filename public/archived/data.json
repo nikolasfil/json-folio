@@ -801,12 +801,9 @@
       ]
     }
   },
+
   "contactForm": {
-    "enabled": false,
-    "title": "Send Me A Message",
-    "highlight": "Message"
-  },
-  "contactForm1": {
+    "enabled": true,
     "emailJsConfig": {
       "serviceId": "",
       "templateId": "",
