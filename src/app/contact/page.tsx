@@ -37,7 +37,12 @@ export default function ContactPage() {
       title={data.contact.title}
       description={`Contact ${data.meta.title}`}
     >
-      <ContactSection contact={data.contact} contactForm={data.contactForm} />
+      <ContactSection
+        contact={data.contact}
+        contactForm={data.contactForm}
+        // tracking={data.tracking}
+        googleForm={data.tracking.googleForm}
+      />
     </PageShell>
   );
 }
