@@ -9,11 +9,11 @@
     "highlight": "Blog",
     "posts": [
       {
-        "id": "post-3",
-        "title": "Building a 5G Security Testbed at Home",
-        "excerpt": "Recreating SBA components, IDS placement, and traffic inspection in a lab environment.",
-        "date": "2026-02-10",
-        "tags": ["5G", "Open5GS", "Homelab"],
+        "id": "post-1",
+        "title": "Hosting UNIHACK 2025 in Patras",
+        "excerpt": "A recap of my experience hosting UNIHACK 2025 in Patras, Greece, including 6 challenges and successes of organizing a local hub in Patras.",
+        "date": "2025-12-13",
+        "tags": ["UNIHACK", "CTF", "Cybersecurity", "Hackathon"],
         "url": "",
         "readingTime": "10 min read"
       }
