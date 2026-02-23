@@ -6,9 +6,14 @@ import { iconComponents } from "@/app/utils/iconComponents";
 interface ContactSectionProps {
   contact: PortfolioData["contact"];
   contactForm: PortfolioData["contactForm"];
+  googleForm: PortfolioData["tracking"]["googleForm"];
 }
 
-export default function ContactSection({ contact, contactForm }: ContactSectionProps) {
+export default function ContactSection({
+  contact,
+  contactForm,
+  googleForm,
+}: ContactSectionProps) {
   if (!contact.enabled) return null;
 
   return (
@@ -31,7 +36,7 @@ export default function ContactSection({ contact, contactForm }: ContactSectionP
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          <ContactForm {...contactForm}/>
+          <ContactForm {...contactForm} googleForm={googleForm} />
         </motion.div>
         <motion.div
           className="flex-1 space-y-5"
@@ -41,34 +46,45 @@ export default function ContactSection({ contact, contactForm }: ContactSectionP
           viewport={{ once: true }}
         >
           <div className="bg-gray-800/50 p-6 rounded-lg border border-gray-700 hover:border-purple-500 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20">
-            <h3 className="text-sm md:text-base font-semibold mb-2 text-purple-400">Email</h3>
+            <h3 className="text-sm md:text-base font-semibold mb-2 text-purple-400">
+              Email
+            </h3>
             <p className="text-sm text-gray-300">{contact.email}</p>
           </div>
           <div className="bg-gray-800/50 p-6 rounded-lg border border-gray-700 hover:border-purple-500 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20">
-            <h3 className="text-sm md:text-base font-semibold mb-2 text-purple-400">Location</h3>
+            <h3 className="text-sm md:text-base font-semibold mb-2 text-purple-400">
+              Location
+            </h3>
             <p className="text-sm text-gray-300">{contact.location}</p>
           </div>
           <div className="bg-gray-800/50 p-6 rounded-lg border border-gray-700 hover:border-purple-500 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20">
-            <h3 className="text-sm md:text-base font-semibold mb-2 text-purple-400">Social</h3>
+            <h3 className="text-sm md:text-base font-semibold mb-2 text-purple-400">
+              Social
+            </h3>
             <div className="flex gap-4 mt-4">
-              {contact.socialLinks.map((link: { name: string; url: string; icon: string }, index: number) => {
-                const IconComponent = iconComponents[link.icon];
-                return (
-                  <a
-                    key={index}
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-gray-300 hover:text-purple-400 transition-colors"
-                  >
-                    {IconComponent && <IconComponent className="w-5 h-5" />}
-                  </a>
-                );
-              })}
+              {contact.socialLinks.map(
+                (
+                  link: { name: string; url: string; icon: string },
+                  index: number,
+                ) => {
+                  const IconComponent = iconComponents[link.icon];
+                  return (
+                    <a
+                      key={index}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-gray-300 hover:text-purple-400 transition-colors"
+                    >
+                      {IconComponent && <IconComponent className="w-5 h-5" />}
+                    </a>
+                  );
+                },
+              )}
             </div>
           </div>
         </motion.div>
       </div>
     </section>
   );
-} 
+}
