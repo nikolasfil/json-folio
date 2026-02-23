@@ -172,14 +172,14 @@
     "enabled": true,
     "tagline": "< Hello, I'm Nikolas Filippatos />",
     "professional": "{Cybersecurity Researcher}",
-    "description": "I'm a <b>Cybersecurity Research Associate</b> at the <b>University of Patras</b>, working on research and tooling around <b>network security</b>, honeypot development, and hands-on offensive/defensive experimentation.\n\nMy work spans <b>containerized testbeds</b> (Docker/Kubernetes), <b>Linux</b> and network security, and building automation in <b>Python</b>. I’m also active in the CTF community—participating, organizing events, and creating challenges, with a focus on <b>miscellaneous</b> and <b>forensics</b>.\n\nIf you’re interested in collaborating on research, security engineering, or educational content, feel free to reach out.",
+    "description": "I'm a <b>Cybersecurity Research Associate</b> at the <b>University of Patras</b>, working on research and tooling around <b>network security</b>, honeypot development, and hands-on offensive/defensive experimentation.\n\nMy work spans <b>containerized testbeds</b> (Docker/Kubernetes), <b>Linux</b> and network security, and building automation in <b>Python</b>. I’m also active in the CTF community-participating, organizing events, and creating challenges, with a focus on <b>miscellaneous</b> and <b>forensics</b>.\n\nIf you’re interested in collaborating on research, security engineering, or educational content, feel free to reach out.",
     "avatar": {
       "enabled": false,
       "image": "/john-doe-avatar.gif",
       "alt": "John Deo 3D Avatar"
     },
     "cta": {
-      "resumeUrl": "",
+      "resumeUrl": "https://github.com/nikolasfil/Resume/blob/main/out/pdf/Nikolas_Filippatos_CV.pdf",
       "buttonText": "Download CV",
       "resumeFileName": "Nikolas_Filippatos_CV.pdf"
     },
@@ -195,7 +195,7 @@
     "items": [
       {
         "value": "2024–",
-        "label": "Research Role"
+        "label": "Researcher"
       },
       {
         "value": "7+",
@@ -266,7 +266,7 @@
       {
         "name": "Virtualization",
         "highlight": "Virtualization",
-        "items": ["Docker Compose"]
+        "items": ["Docker Compose", "Docker"]
       }
     ],
     "more": {
@@ -366,7 +366,7 @@
       {
         "id": 1,
         "title": "Cybersecurity Research Associate",
-        "period": "April 2024 — Present",
+        "period": "April 2024 - Present",
         "company": "University of Patras",
         "location": "Patras, Greece",
         "description": [
@@ -378,8 +378,8 @@
       },
       {
         "id": 2,
-        "title": "Lab Assistant — Database Management",
-        "period": "Oct 2023 — Jan 2024",
+        "title": "Lab Assistant - Database Management",
+        "period": "Oct 2023 - Jan 2024",
         "company": "University of Patras",
         "location": "Patras, Greece",
         "description": [
@@ -390,8 +390,8 @@
       },
       {
         "id": 3,
-        "title": "Lab Assistant — Website Development",
-        "period": "Feb 2023 — Present",
+        "title": "Lab Assistant - Website Development",
+        "period": "Feb 2023 - Present",
         "company": "University of Patras",
         "location": "Patras, Greece",
         "description": [
@@ -410,7 +410,7 @@
         {
           "id": 1,
           "title": "Cybersecurity Research Associate",
-          "period": "April 2024 — Present",
+          "period": "April 2024 - Present",
           "company": "University of Patras",
           "location": "Patras, Greece",
           "description": [
@@ -422,8 +422,8 @@
         },
         {
           "id": 2,
-          "title": "Lab Assistant — Database Management",
-          "period": "Oct 2023 — Jan 2024",
+          "title": "Lab Assistant - Database Management",
+          "period": "Oct 2023 - Jan 2024",
           "company": "University of Patras",
           "location": "Patras, Greece",
           "description": [
@@ -434,8 +434,8 @@
         },
         {
           "id": 3,
-          "title": "Lab Assistant — Website Development",
-          "period": "Feb 2023 — Present",
+          "title": "Lab Assistant - Website Development",
+          "period": "Feb 2023 - Present",
           "company": "University of Patras",
           "location": "Patras, Greece",
           "description": [
@@ -456,11 +456,21 @@
     "showMoreText": "View All Articles",
     "items": [
       {
+        "title": "A large scale analysis of code security in public repositories",
+        "description": "This paper explores the code analysis features of the proposed platform were used in a large scale analysis on 10,855 public repositories.",
+        "url": "https://link.springer.com/article/10.1007/s10207-025-01187-w",
+        "platform": "International Journal of Information Security",
+        "date": "2026",
+        "type": "Article",
+        "image": "/images/magazine.png",
+        "tags": ["opensource", "code analysis", "vulnerability detection"]
+      },
+      {
         "title": "A Practical Assessment of IDS and IPS Capabilities in a 5G Network Testbed",
-        "description": "This paper presents a comprehensive assessment of Intrusion Detection Systems (IDS) and Intrusion Prevention Systems (IPS) within a 5G network testbed. We evaluate the performance, accuracy, and effectiveness of various IDS/IPS solutions in detecting and mitigating cyber threats specific to 5G environments. Our findings highlight the strengths and limitations of current technologies, providing insights for future enhancements in network security.",
-        "url": "https://ieeexplore.ieee.org/document/XXXXXXX",
+        "description": "This paper presents a comprehensive assessment of Intrusion Detection Systems (IDS) and Intrusion Prevention Systems (IPS) within a 5G network testbed. We evaluate the performance, accuracy, and effectiveness of various IDS/IPS solutions in detecting and mitigating cyber threats specific to 5G environments.",
+        "url": "https://ieeexplore.ieee.org/document/11349448",
         "platform": "IEEE NFV-SDN 2025",
-        "date": "2025",
+        "date": "2026",
         "type": "Conference Paper",
         "image": "/images/magazine.png",
         "tags": ["5G", "IDS/IPS", "Security Testbed"]
@@ -710,16 +720,16 @@
     "title": "Highlights",
     "highlight": "Highlights",
     "description": [
-      "Executive Chair — IEEE Student Branch University of Patras (team of 25+ volunteers)",
-      "Cybersecurity Study Group Coordinator — IEEE SB UPatras (hands-on training & mentoring)",
-      "CTF Challenge Author & Organizer — UniHack 2025 CTF (University of Patras)",
+      "Executive Chair - IEEE Student Branch University of Patras (team of 25+ volunteers)",
+      "Cybersecurity Study Group Coordinator - IEEE SB UPatras (hands-on training & mentoring)",
+      "CTF Challenge Author & Organizer - UniHack 2025 CTF (University of Patras)",
       "Selected competition results:",
-      "GRCSC CTF Competition 2025 — 2nd",
-      "ReplyCode Challenge 2025 — 249th",
-      "HTB Cyber Apocalypse CTF Competition 2025 — 434th",
-      "NTUA Hack3.0 CTF Competition — 2nd",
-      "University CTF 2024: Binary Badlands — 125th",
-      "NTUA Hack2.0 CTF Competition — 2nd"
+      "GRCSC CTF Competition 2025 - 2nd",
+      "ReplyCode Challenge 2025 - 249th",
+      "HTB Cyber Apocalypse CTF Competition 2025 - 434th",
+      "NTUA Hack3.0 CTF Competition - 2nd",
+      "University CTF 2024: Binary Badlands - 125th",
+      "NTUA Hack2.0 CTF Competition - 2nd"
     ],
     "certifications": [
       {
@@ -741,16 +751,16 @@
       "title": "Highlights",
       "highlight": "Highlights",
       "description": [
-        "Executive Chair — IEEE Student Branch University of Patras (team of 25+ volunteers)",
-        "Cybersecurity Study Group Coordinator — IEEE SB UPatras (hands-on training & mentoring)",
-        "CTF Challenge Author & Organizer — UniHack 2025 CTF (University of Patras)",
+        "Executive Chair - IEEE Student Branch University of Patras (team of 25+ volunteers)",
+        "Cybersecurity Study Group Coordinator - IEEE SB UPatras (hands-on training & mentoring)",
+        "CTF Challenge Author & Organizer - UniHack 2025 CTF (University of Patras)",
         "Selected competition results:",
-        "GRCSC CTF Competition 2025 — 2nd",
-        "ReplyCode Challenge 2025 — 249th",
-        "HTB Cyber Apocalypse CTF Competition 2025 — 434th",
-        "NTUA Hack3.0 CTF Competition — 2nd",
-        "University CTF 2024: Binary Badlands — 125th",
-        "NTUA Hack2.0 CTF Competition — 2nd"
+        "GRCSC CTF Competition 2025 - 2nd",
+        "ReplyCode Challenge 2025 - 249th",
+        "HTB Cyber Apocalypse CTF Competition 2025 - 434th",
+        "NTUA Hack3.0 CTF Competition - 2nd",
+        "University CTF 2024: Binary Badlands - 125th",
+        "NTUA Hack2.0 CTF Competition - 2nd"
       ],
       "certifications": [
         {
@@ -940,14 +950,6 @@
         "subject": "entry.1601991014",
         "company": "entry.1446715994",
         "phone": "entry.1971481135"
-      },
-      "formData": {
-        "entry.449055977": "name",
-        "entry.1753761619": "email",
-        "entry.692862231": "message",
-        "entry.1601991014": "subject",
-        "entry.1446715994": "company",
-        "entry.1971481135": "phone"
       }
     },
     "ipServices": {
@@ -977,12 +979,11 @@
         "id": 1,
         "title": "Executive Chair",
         "company": "IEEE Student Branch University of Patras",
-        "period": "May 2023 — Sep 2024",
+        "period": "May 2023 - Sep 2024",
         "description": [
           "Managed 25 volunteers within a 100+ member branch",
           "Organized events, external collaborations and community initiatives",
-          "As the Chair of the student branch, I am in charge of organizing and overseeing the executive committee(5 positions) , representing the branch in public events ,managing external affairs and keeping track of the overall progress of the organization .",
-          "The Computer Society Chapter also falls under my direct supervision, which consists of 4 scientific groups ( Programming, Competitive Programming, Cyber security, Quantum Computing ). I am in charge of the 4 coordinators, one for each SG, keeping close communication with them, assisting and advising them."
+          "As the Chair of the student branch, I am in charge of organizing and overseeing the executive committee(5 positions) , representing the branch in public events ,managing external affairs and keeping track of the overall progress of the organization ."
         ],
         "tags": [
           "Leadership",
@@ -996,13 +997,12 @@
 
         "title": "Cybersecurity Study Group Coordinator",
         "company": "IEEE Student Branch, University of Patras",
-        "period": "Oct 2023 — Sep 2024",
+        "period": "Oct 2023 - Sep 2024",
         "description": [
           "Led sessions for 15 students on vulnerability discovery and exploitation",
           "Prepared hands-on labs and guided practical cybersecurity training",
-          "As a coordinator I am in charge of preparing for the meeting, finding useful material and challenges , presenting them , helping the group progress and assign homework to further the group's progress.",
           "In the scientific group we are learning about cybersecurity,identifying vulnerabilities and exploiting them, learning tools and techniques through cybersecurity challenges, such as ctf, tryhackme, hackthebox .",
-          "As a coordinator I am in charge of preparing for the meeting, finding useful material and challenges , presenting them , helping the group progress and assign homework to further the group's progress. In the scientific group we are learning about cybersecurity,identifying vulnerabilities and exploiting them, learning tools and techniques through cybersecurity challenges, such as ctf, tryhackme, hackthebox ."
+          "As a coordinator I am in charge of preparing for the meeting, finding useful material and challenges , presenting them , helping the group progress and assign homework to further the group's progress."
         ],
         "tags": ["Cybersecurity", "Teamwork", "Ethical Hacking"]
       },
@@ -1010,7 +1010,7 @@
         "id": 3,
         "title": "Competitive Programming Coordinator",
         "company": "IEEE Student Branch, University of Patras",
-        "period": "Feb 2022 — May 2023",
+        "period": "Feb 2022 - May 2023",
         "description": [
           "Coordinated weekly algorithmic problem-solving sessions for 20 students",
           "Prepared participants for national and international programming contests",
@@ -1032,7 +1032,8 @@
         "period": "December 13 2025",
         "description": [
           "Organized the Unihack 2025 CTF event, managing logistics and participant coordination in the University of Patras",
-          "Authored 6 CTF challenges in forensics and miscellaneous topics for the event"
+          "Authored 6 CTF challenges in forensics and miscellaneous topics for the event",
+          "https://huh.ctflib.eu/"
         ],
         "urls": [
           {
@@ -1057,9 +1058,9 @@
       "type": "info",
       "content": {
         "list": [
-          "SAND5G — 5G security experimentation & tooling",
-          "CONSOLE — Security and training for software supply chain / SME needs",
-          "ISSG Hacking Group — training, CTFs, and challenge development"
+          "SAND5G - 5G security experimentation & tooling",
+          "CONSOLE - Security and training for software supply chain / SME needs",
+          "ISSG Hacking Group - training, CTFs, and challenge development"
         ]
       }
     },
@@ -1103,7 +1104,7 @@
       "description": "Spoken languages",
       "type": "info",
       "content": {
-        "list": ["English — C2", "German — C1"]
+        "list": ["English - C2", "German - C1"]
       }
     }
   ],
@@ -1168,7 +1169,7 @@
         "title": "Executive Chair",
         "org": "IEEE Student Branch University of Patras",
         "institution": "IEEE S.B. UPatras",
-        "date": "May 2023 — Sep 2024",
+        "date": "May 2023 - Sep 2024",
         "bullets": [
           "Managed 25 volunteers within a 100+ member branch",
           "Organized events, external collaborations and community initiatives",
@@ -1186,7 +1187,7 @@
         "title": "Cybersecurity Study Group Coordinator",
         "org": "IEEE Student Branch",
         "institution": "University of Patras",
-        "date": "Oct 2023 — Sep 2024",
+        "date": "Oct 2023 - Sep 2024",
         "bullets": [
           "Led sessions for 15 students on vulnerability discovery and exploitation",
           "Prepared hands-on labs and guided practical cybersecurity training",
@@ -1200,7 +1201,7 @@
         "title": "Competitive Programming Coordinator",
         "org": "IEEE Student Branch",
         "institution": "University of Patras",
-        "date": "Feb 2022 — May 2023",
+        "date": "Feb 2022 - May 2023",
         "bullets": [
           "Coordinated weekly algorithmic problem-solving sessions for 20 students",
           "Prepared participants for national and international programming contests",
@@ -1259,7 +1260,7 @@
         "name": "SAND5G",
         "description": "EU Funded project ",
         "url": "https://sand5g.eu/",
-        "duration": "Aug 2024 — Present",
+        "duration": "Aug 2024 - Present",
         "technologies": ["React", "Node.js", "Docker", "Kubernetes"],
         "responsibilities": [
           "Implemented security features for 5G network applications",
@@ -1273,7 +1274,7 @@
         "name": "CONSOLE",
         "description": "EU Funded project ",
         "url": "https://www.consoleproject.eu/",
-        "duration": "Aug 2024 — Present",
+        "duration": "Aug 2024 - Present",
         "technologies": ["Docker"],
         "responsibilities": ["Setup Moodle "],
         "bullets": [
@@ -1284,7 +1285,7 @@
         "name": "ISSG Hacking Group",
         "description": "Internal Research Group ",
         "url": "https://issg.gr",
-        "duration": "Oct 2024 — Present",
+        "duration": "Oct 2024 - Present",
         "technologies": ["Linux"],
         "responsibilities": ["Setup Moodle "],
         "bullets": [
