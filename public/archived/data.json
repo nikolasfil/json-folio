@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Nikolas Filippatos - Portfolio",
-    "description": "Cybersecurity Research Associate, focused on security, training, and CTF tooling.",
+    "description": "Cybersecurity Research Associate, focused on offensive security, training, and CTF tooling.",
     "favicon": "/favicon.ico"
   },
   "header": {
@@ -1107,7 +1107,6 @@
       }
     }
   ],
-
   "custom_nick": {
     "competitions_full": {
       "team_name": "Competitive-Geeks",
