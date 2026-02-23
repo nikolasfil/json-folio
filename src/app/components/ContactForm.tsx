@@ -2,18 +2,48 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
 import { FiCheckCircle, FiAlertCircle, FiSend } from "react-icons/fi";
 import { ContactFormProps } from "../types/portfolio-data.type";
 
-const ContactForm = ({
-  emailJsConfig,
-  formFields,
-  submitButton,
-  successMessage,
-  errorMessage,
-  validationMessages
-}: ContactFormProps) => {
+/**
+ * Minimal Google Forms config used by json-folio tracking.googleForm.
+ * We keep this local & optional to avoid forcing changes in external types.
+ */
+type GoogleFormConfig = {
+  enabled?: boolean;
+  actionUrl?: string;
+  /**
+   * Maps Google Form "entry.<id>" -> contact field name (e.g. "name", "email", "message").
+   * Example:
+   *   { "entry.449055977": "name", "entry.1753761619": "email" }
+   */
+  formData?: Record<string, string>;
+};
+
+type ContactFormExtendedProps = ContactFormProps & {
+  googleForm?: GoogleFormConfig;
+  tracking?: {
+    googleForm?: GoogleFormConfig;
+  };
+};
+
+const ContactForm = (props: ContactFormExtendedProps) => {
+  const {
+    emailJsConfig,
+    formFields,
+    submitButton,
+    successMessage,
+    errorMessage,
+    validationMessages
+  } = props;
+
+  // `formFields` might be strictly typed; keep optional extensions safe.
+  const companyField = (formFields as any)?.company;
+
+  // Prefer a dedicated `googleForm` prop, otherwise try json-folio's `tracking.googleForm`.
+  const googleForm: GoogleFormConfig | undefined =
+    props.googleForm ?? props.tracking?.googleForm;
+
   const formRef = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({
     name: "",
@@ -21,6 +51,8 @@ const ContactForm = ({
     phone: "",
     subject: "",
     message: "",
+    // Optional; rendered only if you add it in your JSON and/or in the Google Form.
+    company: "",
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -68,12 +100,12 @@ const ContactForm = ({
     let isValid = true;
 
     Object.keys(formData).forEach((key) => {
-      if (key !== "phone") {
-        const error = validateField(key, formData[key as keyof typeof formData]);
-        if (error) {
-          newErrors[key] = error;
-          isValid = false;
-        }
+      // Optional fields we don't require.
+      if (key === "phone" || key === "company") return;
+      const error = validateField(key, formData[key as keyof typeof formData]);
+      if (error) {
+        newErrors[key] = error;
+        isValid = false;
       }
     });
 
@@ -90,6 +122,62 @@ const ContactForm = ({
     setSubmitStatus("idle");
 
     try {
+      // 1) Primary: Submit to Google Forms (recommended for your use-case).
+      if (googleForm?.enabled && googleForm.actionUrl && googleForm.formData) {
+        const params = new URLSearchParams();
+
+        // Map each Google Forms "entry.<id>" to the correct value from our local state.
+        for (const [entryId, key] of Object.entries(googleForm.formData)) {
+          const value = (formData as Record<string, string>)[key] ?? "";
+          params.append(entryId, value);
+        }
+
+        // Google Forms doesn't allow CORS; `no-cors` is expected.
+        // That means we can't reliably read the response. If fetch doesn't throw,
+        // we assume success.
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 12_000);
+
+        try {
+          await fetch(googleForm.actionUrl, {
+            method: "POST",
+            mode: "no-cors",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+            },
+            body: params.toString(),
+            signal: controller.signal,
+          });
+        } finally {
+          clearTimeout(timeout);
+        }
+
+        setSubmitStatus("success");
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+          company: "",
+        });
+        return;
+      }
+
+      // 2) Fallback: EmailJS (only if configured).
+      // If you don't want EmailJS at all, you can delete this block.
+      const hasEmailJs =
+        !!emailJsConfig?.serviceId &&
+        !!emailJsConfig?.templateId &&
+        !!emailJsConfig?.publicKey;
+
+      if (!hasEmailJs) {
+        throw new Error(
+          "No Google Form config found (tracking.googleForm) and EmailJS is not configured."
+        );
+      }
+
+      const { default: emailjs } = await import("@emailjs/browser");
       await emailjs.sendForm(
         emailJsConfig.serviceId,
         emailJsConfig.templateId,
@@ -104,6 +192,7 @@ const ContactForm = ({
         phone: "",
         subject: "",
         message: "",
+        company: "",
       });
     } catch (error) {
       console.error(error);
@@ -202,6 +291,27 @@ const ContactForm = ({
           className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all"
         />
       </div>
+
+      {/* Optional Company field (only renders if your JSON provides it) */}
+      {companyField && (
+        <div>
+          <label
+            htmlFor="company"
+            className="block text-sm font-medium text-gray-300 mb-1"
+          >
+            {companyField.label}
+          </label>
+          <input
+            type="text"
+            id="company"
+            name="company"
+            value={(formData as any).company}
+            onChange={handleChange}
+            placeholder={companyField.placeholder}
+            className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all"
+          />
+        </div>
+      )}
       <div>
         <label
           htmlFor="subject"
