@@ -143,8 +143,8 @@
         "label": "Competitions"
       },
       {
-        "value": "3",
-        "label": "Certifications"
+        "value": "2",
+        "label": "Publications"
       }
     ]
   },
@@ -732,7 +732,7 @@
       {
         "name": "TryHackMe",
         "url": "https://tryhackme.com/p/nikolasfil",
-        "icon": "SiTryhackme"
+        "icon": "FiTryhackme"
       },
       {
         "name": "HackTheBox",
@@ -802,6 +802,11 @@
     }
   },
   "contactForm": {
+    "enabled": false,
+    "title": "Send Me A Message",
+    "highlight": "Message"
+  },
+  "contactForm1": {
     "emailJsConfig": {
       "serviceId": "",
       "templateId": "",
@@ -853,21 +858,36 @@
     "text": "© {year} Nikolas Filippatos. All rights reserved."
   },
   "tracking": {
-    "enabled": false,
+    "enabled": true,
     "googleAnalytics": {
       "enabled": false,
       "googleTag": "GA-123456789"
     },
+
     "googleForm": {
       "enabled": true,
-      "actionUrl": "https://docs.google.com/forms/d/e/your-form-id/formResponse",
+      "actionUrl": "https://docs.google.com/forms/d/e/1FAIpQLSfMK9NDQ3PQXj4s5gFwntNTFGGhvxp3anlKrE29x850ijB3Ow/formResponse",
       "fields": {
         "timestamp": "entry.1234567890",
         "eventType": "entry.0987654321",
         "ipAddress": "entry.1122334455",
         "userAgent": "entry.5566778899",
         "country": "entry.6677889900",
-        "additionalData": "entry.7788990011"
+        "additionalData": "entry.7788990011",
+        "name": "entry.449055977",
+        "email": "entry.1753761619",
+        "message": "entry.692862231",
+        "subject": "entry.1601991014",
+        "company": "entry.1446715994",
+        "phone": "entry.1971481135"
+      },
+      "formData": {
+        "entry.449055977": "name",
+        "entry.1753761619": "email",
+        "entry.692862231": "message",
+        "entry.1601991014": "subject",
+        "entry.1446715994": "company",
+        "entry.1971481135": "phone"
       }
     },
     "ipServices": {
