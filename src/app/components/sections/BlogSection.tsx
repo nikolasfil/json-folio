@@ -63,7 +63,9 @@ export default function BlogSection({ blog }: BlogSectionProps) {
                   )}
                 </h3>
                 {post.excerpt && (
-                  <p className="text-gray-300 mt-2 leading-relaxed">{post.excerpt}</p>
+                  <p className="text-gray-300 mt-2 leading-relaxed">
+                    {post.excerpt}
+                  </p>
                 )}
                 {Array.isArray(post.tags) && post.tags.length > 0 && (
                   <div className="flex flex-wrap gap-2 mt-3">
@@ -84,13 +86,13 @@ export default function BlogSection({ blog }: BlogSectionProps) {
               </div>
             </div>
 
-            {!post.url && (
+            {/* {!post.url && (
               <div className="mt-3 text-sm">
                 <Link href="/contact" className="text-purple-400 hover:text-purple-300">
                   Want this post published? Contact me
                 </Link>
               </div>
-            )}
+            )} */}
           </motion.div>
         ))}
       </div>
