@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "title": "Blog",
+    "description": "Technical articles, research notes, and cybersecurity insights."
+  },
+  "blog": {
+    "enabled": true,
+    "title": "Latest Blog Posts",
+    "highlight": "Blog",
+    "posts": [
+      {
+        "id": "post-3",
+        "title": "Building a 5G Security Testbed at Home",
+        "excerpt": "Recreating SBA components, IDS placement, and traffic inspection in a lab environment.",
+        "date": "2026-02-10",
+        "tags": ["5G", "Open5GS", "Homelab"],
+        "url": "",
+        "readingTime": "10 min read"
+      }
+    ]
+  }
+}
