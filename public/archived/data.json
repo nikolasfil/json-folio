@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Nikolas Filippatos - Portfolio",
-    "description": "Cybersecurity Research Associate & Developer focused on 5G security, training, and CTF tooling.",
+    "description": "Cybersecurity Research Associate, focused on security, training, and CTF tooling.",
     "favicon": "/favicon.ico"
   },
   "header": {
@@ -19,8 +19,8 @@
       {
         "label": "Skills",
         "section": "skills",
-        "navEligibleForDesktop": true,
-        "navEligibleForMobile": true
+        "navEligibleForDesktop": false,
+        "navEligibleForMobile": false
       },
       {
         "label": "Publications",
@@ -43,8 +43,8 @@
       {
         "label": "Education",
         "section": "education",
-        "navEligibleForDesktop": true,
-        "navEligibleForMobile": true
+        "navEligibleForDesktop": false,
+        "navEligibleForMobile": false
       },
       {
         "label": "Achievements",
@@ -55,8 +55,8 @@
       {
         "label": "Testimonials",
         "section": "testimonials",
-        "navEligibleForDesktop": true,
-        "navEligibleForMobile": true
+        "navEligibleForDesktop": false,
+        "navEligibleForMobile": false
       },
       {
         "label": "Contact",
@@ -67,6 +67,69 @@
     ]
   },
   "codeElements": [
+    {
+      "text": "nmap -sC -sV target.local",
+      "x": 8,
+      "y": 12,
+      "delay": 0
+    },
+    {
+      "text": "const payload = craftExploit(bufferOverflow)",
+      "x": 78,
+      "y": 28,
+      "delay": 0.2
+    },
+    {
+      "text": "hashcat -m 0 hashes.txt rockyou.txt",
+      "x": 22,
+      "y": 60,
+      "delay": 0.4
+    },
+    {
+      "text": "sqlmap -u 'https://target/app?id=1' --dump",
+      "x": 60,
+      "y": 82,
+      "delay": 0.6
+    },
+    {
+      "text": "if (authBypass) escalatePrivileges();",
+      "x": 14,
+      "y": 5,
+      "delay": 0.8
+    },
+    {
+      "text": "sniffTraffic(interface='eth0')",
+      "x": 70,
+      "y": 48,
+      "delay": 1.0
+    },
+    {
+      "text": "msfconsole -x 'use exploit/multi/handler'",
+      "x": 35,
+      "y": 72,
+      "delay": 1.2
+    },
+    {
+      "text": "analyzePacket(pcap).findIndicators()",
+      "x": 88,
+      "y": 65,
+      "delay": 1.4
+    },
+    {
+      "text": "jwt.verify(token) === false",
+      "x": 18,
+      "y": 38,
+      "delay": 1.6
+    },
+    {
+      "text": "while(defense) { adaptAttack(); }",
+      "x": 55,
+      "y": 15,
+      "delay": 1.8
+    }
+  ],
+
+  "codeElementsDev": [
     {
       "text": "console.log('Hello World')",
       "x": 5,
@@ -262,25 +325,37 @@
       ]
     }
   },
-  "publications": {
+  "education": {
     "index": 3,
     "enabled": true,
-    "title": "Publications",
-    "highlight": "Publications",
-    "displayLimit": 3,
-    "showMoreText": "View All Articles",
+    "title": "Education",
+    "highlight": "Education",
     "items": [
       {
-        "title": "A Practical Assessment of IDS and IPS Capabilities in a 5G Network Testbed",
-        "description": "This paper presents a comprehensive assessment of Intrusion Detection Systems (IDS) and Intrusion Prevention Systems (IPS) within a 5G network testbed. We evaluate the performance, accuracy, and effectiveness of various IDS/IPS solutions in detecting and mitigating cyber threats specific to 5G environments. Our findings highlight the strengths and limitations of current technologies, providing insights for future enhancements in network security.",
-        "url": "https://ieeexplore.ieee.org/document/XXXXXXX",
-        "platform": "IEEE NFV-SDN 2025",
-        "date": "2025",
-        "type": "Conference Paper",
-        "image": "/images/magazine.png",
-        "tags": ["5G", "IDS/IPS", "Security Testbed"]
+        "degree": "Integrated Master",
+        "stream": "Electrical and Computer Engineering",
+        "institute": "University of Patras",
+        "result": "",
+        "duration": "2019 - Present",
+        "location": "Patras, Greece"
       }
-    ]
+    ],
+    "more": {
+      "index": 5,
+      "enabled": true,
+      "title": "Education",
+      "highlight": "Education",
+      "items": [
+        {
+          "degree": "Integrated Master",
+          "stream": "Electrical and Computer Engineering",
+          "institute": "University of Patras",
+          "result": "",
+          "duration": "2019 - Present",
+          "location": "Patras, Greece"
+        }
+      ]
+    }
   },
   "experience": {
     "index": 4,
@@ -372,37 +447,25 @@
       ]
     }
   },
-  "education": {
+  "publications": {
     "index": 5,
     "enabled": true,
-    "title": "Education",
-    "highlight": "Education",
+    "title": "Publications",
+    "highlight": "Publications",
+    "displayLimit": 3,
+    "showMoreText": "View All Articles",
     "items": [
       {
-        "degree": "Integrated Master",
-        "stream": "Electrical and Computer Engineering",
-        "institute": "University of Patras",
-        "result": "",
-        "duration": "2019 - Present",
-        "location": "Patras, Greece"
+        "title": "A Practical Assessment of IDS and IPS Capabilities in a 5G Network Testbed",
+        "description": "This paper presents a comprehensive assessment of Intrusion Detection Systems (IDS) and Intrusion Prevention Systems (IPS) within a 5G network testbed. We evaluate the performance, accuracy, and effectiveness of various IDS/IPS solutions in detecting and mitigating cyber threats specific to 5G environments. Our findings highlight the strengths and limitations of current technologies, providing insights for future enhancements in network security.",
+        "url": "https://ieeexplore.ieee.org/document/XXXXXXX",
+        "platform": "IEEE NFV-SDN 2025",
+        "date": "2025",
+        "type": "Conference Paper",
+        "image": "/images/magazine.png",
+        "tags": ["5G", "IDS/IPS", "Security Testbed"]
       }
-    ],
-    "more": {
-      "index": 5,
-      "enabled": true,
-      "title": "Education",
-      "highlight": "Education",
-      "items": [
-        {
-          "degree": "Integrated Master",
-          "stream": "Electrical and Computer Engineering",
-          "institute": "University of Patras",
-          "result": "",
-          "duration": "2019 - Present",
-          "location": "Patras, Greece"
-        }
-      ]
-    }
+    ]
   },
   "projects": {
     "index": 6,
@@ -642,7 +705,7 @@
     }
   },
   "achievements": {
-    "index": 7,
+    "index": 8,
     "enabled": true,
     "title": "Highlights",
     "highlight": "Highlights",
@@ -906,7 +969,7 @@
   },
   "volunteering": {
     "enabled": true,
-    "index": 4,
+    "index": 9,
     "title": "Volunteering",
     "highlight": "ing",
     "items": [
