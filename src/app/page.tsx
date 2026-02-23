@@ -250,7 +250,12 @@ export default function Home() {
     index: data.contact.index,
     element: (
       <Suspense fallback={<div />}>
-        <ContactSection contact={data.contact} contactForm={data.contactForm} />
+        <ContactSection
+          contact={data.contact}
+          contactForm={data.contactForm}
+          // tracking={data.tracking}
+          googleForm={data.tracking.googleForm}
+        />
       </Suspense>
     ),
   });
