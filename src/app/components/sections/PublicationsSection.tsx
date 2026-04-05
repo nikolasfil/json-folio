@@ -68,6 +68,7 @@ export default function PublicationsSection({
   const allItems = publications.items || [];
   const displayedItems = isHome ? getHighlightedItems(allItems) : allItems;
   const hasMoreItems = isHome && allItems.length > displayedItems.length;
+  const showSectionReadMore = isHome && allItems.length > 0;
   const [isNavigating, setIsNavigating] = useState(false);
   const showMoreText = "Show More";
   const loadingText = "Loading...";
@@ -200,7 +201,7 @@ export default function PublicationsSection({
         )}
       </section>
 
-      {isHome && hasMoreItems && (
+      {showSectionReadMore && (
         <div className="mt-8 flex justify-center">
           <a
             href="/publications"
