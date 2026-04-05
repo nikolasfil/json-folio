@@ -1,0 +1,26 @@
+name: Deploy dlive to nikolasfil.github.io
+
+on:
+  push:
+    branches:
+      - dlive
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout workflow repository
+        uses: actions/checkout@v4
+
+      - name: Run deploy action
+        uses: ./actions/deploy-user-site
+        with:
+          source_ref: dlive
+          publish_repository: nikolasfil/nikolasfil.github.io
+          publish_branch: main
+          deploy_token: ${{ secrets.GH_PAGES_DEPLOY_TOKEN }}

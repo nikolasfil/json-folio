@@ -1,0 +1,62 @@
+name: Deploy User Site
+description: Build the portfolio from a source branch and publish the static export to the user Pages repository.
+
+inputs:
+  source_ref:
+    description: Branch or ref to build from.
+    required: false
+    default: dlive
+  node_version:
+    description: Node.js version to use.
+    required: false
+    default: "20"
+  publish_repository:
+    description: Repository that serves the user site.
+    required: false
+    default: nikolasfil/nikolasfil.github.io
+  publish_branch:
+    description: Branch to publish into on the target repository.
+    required: false
+    default: main
+  deploy_token:
+    description: Personal access token with write access to the target repository.
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Checkout source branch
+      uses: actions/checkout@v4
+      with:
+        ref: ${{ inputs.source_ref }}
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ inputs.node_version }}
+        cache: npm
+
+    - name: Install dependencies
+      shell: bash
+      run: npm ci
+
+    - name: Build static export
+      shell: bash
+      env:
+        NEXT_PUBLIC_BASE_PATH: ""
+        NEXT_PUBLIC_PORTFOLIO_DATA_URL: https://raw.githubusercontent.com/nikolasfil/Resume/refs/heads/main/src/json/jsonfolio.json
+        NEXT_PUBLIC_BLOG_DATA_URL: https://raw.githubusercontent.com/nikolasfil/Resume/refs/heads/main/src/json/blogfolio.json
+      run: npm run build
+
+    - name: Prepare Pages output
+      shell: bash
+      run: touch out/.nojekyll
+
+    - name: Publish to user site repository
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        personal_token: ${{ inputs.deploy_token }}
+        external_repository: ${{ inputs.publish_repository }}
+        publish_branch: ${{ inputs.publish_branch }}
+        publish_dir: ./out
+        force_orphan: true
