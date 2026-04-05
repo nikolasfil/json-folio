@@ -332,6 +332,7 @@
     "highlight": "Education",
     "items": [
       {
+        "highlight": true,
         "degree": "Integrated Master",
         "stream": "Electrical and Computer Engineering",
         "institute": "University of Patras",
@@ -365,6 +366,7 @@
     "items": [
       {
         "id": 1,
+        "highlight": true,
         "title": "Cybersecurity Research Associate",
         "period": "April 2024 - Present",
         "company": "University of Patras",
@@ -378,6 +380,7 @@
       },
       {
         "id": 2,
+        "highlight": false,
         "title": "Lab Assistant - Database Management",
         "period": "Oct 2023 - Jan 2024",
         "company": "University of Patras",
@@ -390,6 +393,7 @@
       },
       {
         "id": 3,
+        "highlight": false,
         "title": "Lab Assistant - Website Development",
         "period": "Feb 2023 - Present",
         "company": "University of Patras",
@@ -456,6 +460,7 @@
     "showMoreText": "View All Articles",
     "items": [
       {
+        "highlight": true,
         "title": "A large scale analysis of code security in public repositories",
         "description": "This paper explores the code analysis features of the proposed platform were used in a large scale analysis on 10,855 public repositories.",
         "url": "https://link.springer.com/article/10.1007/s10207-025-01187-w",
@@ -466,6 +471,7 @@
         "tags": ["opensource", "code analysis", "vulnerability detection"]
       },
       {
+        "highlight": true,
         "title": "A Practical Assessment of IDS and IPS Capabilities in a 5G Network Testbed",
         "description": "This paper presents a comprehensive assessment of Intrusion Detection Systems (IDS) and Intrusion Prevention Systems (IPS) within a 5G network testbed. We evaluate the performance, accuracy, and effectiveness of various IDS/IPS solutions in detecting and mitigating cyber threats specific to 5G environments.",
         "url": "https://ieeexplore.ieee.org/document/11349448",
@@ -485,6 +491,7 @@
     "homepage": ["iotproject", "computerattack"],
     "items": [
       {
+        "highlight": true,
         "title": "IOT Project",
         "description": "An infrastructure managing IOT tracker and buttons, connected to Fiware. It consists of 2 servers used for IOT communication, an express website server, a temporary server for the database and an MQTT publisher for virtual sensors.",
         "githubLink": "https://github.com/nikolasfil/IOT-Project-2023",
@@ -505,6 +512,7 @@
         "nickname": "iotproject"
       },
       {
+        "highlight": false,
         "title": "Simulating Attack on a Computer System",
         "description": "A vulnerability assessment of a virtual machine. To gain access to the machine, four steps were followed: enumeration of the ports, identifying vulnerabilities, exploiting the vulnerabilities and elevating privileges for root user access.",
         "githubLink": "https://github.com/nikolasfil/ComputerSecurityProject",
@@ -522,6 +530,7 @@
         "nickname": "computerattack"
       },
       {
+        "highlight": false,
         "title": "Web Server Hardening",
         "description": "Setting up and securing a Linux web server. Using a virtual machine, set up a Linux web server using a headless Debian distro, configured the firewall and a fail2ban system to prevent brute force attacks, learned basic concepts of private-public key cryptography for more secure communication, set up a cloud instance, configured a custom DNS server and attempted a DNS caching attack from an external attacker's point of view.",
         "githubLink": "https://github.com/nikolasfil/ModernCyberApplications",
@@ -543,6 +552,7 @@
         "nickname": "computerattack"
       },
       {
+        "highlight": false,
         "title": "Fullstack website Development: Bilbo",
         "description": "Bilbo is a website managing libraries. Developed using Node.js, Handlebars and SQLite as the database model.",
         "githubLink": "https://github.com/nikolasfil/Bilbo",
@@ -563,6 +573,7 @@
         "nickname": "bilbo"
       },
       {
+        "highlight": false,
         "title": "Advanced Programming Techniques Project",
         "description": "A three part project used to demonstrate code testing, version control with git and GitHub, and dockerization using an MQTT server.",
         "githubLink": "https://github.com/nikolasfil/AdvancedProgrammingProject",
@@ -581,6 +592,7 @@
         "nickname": "advancedprogramming"
       },
       {
+        "highlight": false,
         "title": "Database Project",
         "description": "A command line application managing charging stations for electrical cars. The database model is written in SQLite; the application and database management are in Python.",
         "githubLink": "https://github.com/nikolasfil/Database-Charging-Stations",
@@ -589,6 +601,7 @@
         "type": "Project"
       },
       {
+        "highlight": false,
         "title": "CTF Challenges",
         "description": "Created Capture The Flag challenges in the categories Miscellaneous and Forensics to teach practical cybersecurity skills.",
         "githubLink": "https://github.com/nikolasfil/CTF",
@@ -733,12 +746,14 @@
     ],
     "certifications": [
       {
+        "highlight": true,
         "name": "Reverse Engineering 101",
         "issuer": "Kaspersky, Computer and Network Security",
         "icon": "",
         "url": ""
       },
       {
+        "highlight": false,
         "name": "SQL Injection Attacks",
         "issuer": "EC-Council, codered",
         "icon": "",
@@ -985,56 +1000,7 @@
     "items": [
       {
         "id": 1,
-        "title": "Executive Chair",
-        "company": "IEEE Student Branch University of Patras",
-        "period": "May 2023 - Sep 2024",
-        "description": [
-          "Managed 25 volunteers within a 100+ member branch",
-          "Organized events, external collaborations and community initiatives",
-          "As the Chair of the student branch, I am in charge of organizing and overseeing the executive committee(5 positions) , representing the branch in public events ,managing external affairs and keeping track of the overall progress of the organization ."
-        ],
-        "tags": [
-          "Leadership",
-          "Communication",
-          "Project Management",
-          "Teamwork"
-        ]
-      },
-      {
-        "id": 2,
-
-        "title": "Cybersecurity Study Group Coordinator",
-        "company": "IEEE Student Branch, University of Patras",
-        "period": "Oct 2023 - Sep 2024",
-        "description": [
-          "Led sessions for 15 students on vulnerability discovery and exploitation",
-          "Prepared hands-on labs and guided practical cybersecurity training",
-          "In the scientific group we are learning about cybersecurity,identifying vulnerabilities and exploiting them, learning tools and techniques through cybersecurity challenges, such as ctf, tryhackme, hackthebox .",
-          "As a coordinator I am in charge of preparing for the meeting, finding useful material and challenges , presenting them , helping the group progress and assign homework to further the group's progress."
-        ],
-        "tags": ["Cybersecurity", "Teamwork", "Ethical Hacking"]
-      },
-      {
-        "id": 3,
-        "title": "Competitive Programming Coordinator",
-        "company": "IEEE Student Branch, University of Patras",
-        "period": "Feb 2022 - May 2023",
-        "description": [
-          "Coordinated weekly algorithmic problem-solving sessions for 20 students",
-          "Prepared participants for national and international programming contests",
-          "Coordinated meetings to learn about Competitive Programming and take part in competitions. Managed an average of 20 people per meeting. As group, we participated in 5 Programming Competitions"
-        ],
-        "tags": [
-          "Teaching ",
-          "Problem Solving ",
-          "Team Coordination ",
-          "Teamwork ",
-          "Python (Programming Language) ",
-          "Competitive Programming"
-        ]
-      },
-      {
-        "id": 4,
+        "highlight": true,
         "title": "Event Organizer and author",
         "company": "ISSG, University of Patras",
         "period": "December 13 2025",
@@ -1052,6 +1018,59 @@
             "label": "ISSG Unihack Page",
             "href": "https://issg.gr/unihack2025"
           }
+        ]
+      },
+      {
+        "id": 2,
+        "highlight": true,
+        "title": "Executive Chair",
+        "company": "IEEE Student Branch University of Patras",
+        "period": "May 2023 - Sep 2024",
+        "description": [
+          "Managed 25 volunteers within a 100+ member branch",
+          "Organized events, external collaborations and community initiatives",
+          "As the Chair of the student branch, I am in charge of organizing and overseeing the executive committee(5 positions) , representing the branch in public events ,managing external affairs and keeping track of the overall progress of the organization ."
+        ],
+        "tags": [
+          "Leadership",
+          "Communication",
+          "Project Management",
+          "Teamwork"
+        ]
+      },
+      {
+        "id": 3,
+        "highlight": false,
+
+        "title": "Cybersecurity Study Group Coordinator",
+        "company": "IEEE Student Branch, University of Patras",
+        "period": "Oct 2023 - Sep 2024",
+        "description": [
+          "Led sessions for 15 students on vulnerability discovery and exploitation",
+          "Prepared hands-on labs and guided practical cybersecurity training",
+          "In the scientific group we are learning about cybersecurity,identifying vulnerabilities and exploiting them, learning tools and techniques through cybersecurity challenges, such as ctf, tryhackme, hackthebox .",
+          "As a coordinator I am in charge of preparing for the meeting, finding useful material and challenges , presenting them , helping the group progress and assign homework to further the group's progress."
+        ],
+        "tags": ["Cybersecurity", "Teamwork", "Ethical Hacking"]
+      },
+      {
+        "id": 4,
+        "highlight": false,
+        "title": "Competitive Programming Coordinator",
+        "company": "IEEE Student Branch, University of Patras",
+        "period": "Feb 2022 - May 2023",
+        "description": [
+          "Coordinated weekly algorithmic problem-solving sessions for 20 students",
+          "Prepared participants for national and international programming contests",
+          "Coordinated meetings to learn about Competitive Programming and take part in competitions. Managed an average of 20 people per meeting. As group, we participated in 5 Programming Competitions"
+        ],
+        "tags": [
+          "Teaching ",
+          "Problem Solving ",
+          "Team Coordination ",
+          "Teamwork ",
+          "Python (Programming Language) ",
+          "Competitive Programming"
         ]
       }
     ]

@@ -37,7 +37,7 @@ export default function EducationPage() {
       title={data.education.title}
       description={`All ${data.education.title.toLowerCase()}`}
     >
-      <EducationSection education={data.education} />
+      <EducationSection education={data.education} variant="page" />
     </PageShell>
   );
 }

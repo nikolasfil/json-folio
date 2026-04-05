@@ -8,6 +8,7 @@ import { useState } from "react";
 import Loading from "../Loading";
 import { useRouter } from "next/navigation";
 import { parseText } from "../../utils/textParser";
+import { getHighlightedItems } from "../../utils/highlightedItems";
 
 interface PublicationsSectionProps {
   publications: PortfolioData["publications"] & { more?: any[] };
@@ -63,16 +64,9 @@ export default function PublicationsSection({
 
   const isHome = variant === "home";
 
-  // Displayed items logic (support optional displayLimit on home)
   const allItems = publications.items || [];
-  const displayLimit =
-    isHome && publications.displayLimit ? publications.displayLimit : undefined;
-  const displayedItems =
-    typeof displayLimit === "number"
-      ? allItems.slice(0, displayLimit)
-      : allItems;
-  // const hasMore =
-  // Array.isArray(publications.more) && publications.more.length > 0;
+  const displayedItems = isHome ? getHighlightedItems(allItems) : allItems;
+  const hasMoreItems = isHome && allItems.length > displayedItems.length;
   const [isNavigating, setIsNavigating] = useState(false);
   const showMoreText = "Show More";
   const loadingText = "Loading...";
@@ -166,7 +160,7 @@ export default function PublicationsSection({
         </div>
 
         {/* Show More Link */}
-        {isHome && showMore && (
+        {isHome && showMore && hasMoreItems && (
           <motion.div
             className="flex justify-end mt-4 md:mt-6"
             initial={{ opacity: 0, y: 20 }}
@@ -187,7 +181,7 @@ export default function PublicationsSection({
         )}
       </section>
 
-      {isHome && (
+      {isHome && hasMoreItems && (
         <div className="mt-8 flex justify-center">
           <a
             href="/publications"

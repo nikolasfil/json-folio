@@ -41,6 +41,8 @@ export const ProjectCarousel = ({ projects }: { projects: any[] }) => {
     }
   };
 
+  const hasMultipleProjects = projects.length > 1;
+
   return (
     <div 
       className="overflow-hidden relative"
@@ -110,32 +112,36 @@ export const ProjectCarousel = ({ projects }: { projects: any[] }) => {
         ))}
       </motion.div>
 
-      <button
-        onClick={prevProject}
-        className="absolute left-0 top-1/2 -translate-y-1/2 bg-gray-800/80 hover:bg-purple-600/20 p-2 rounded-full border border-gray-700 hover:border-purple-500 transition-all z-10"
-        aria-label="Previous project"
-      >
-        <FiChevronLeft className="w-4 h-18" />
-      </button>
-
-      <button
-        onClick={nextProject}
-        className="absolute right-0 top-1/2 -translate-y-1/2 bg-gray-800/80 hover:bg-purple-600/20 p-2 rounded-full border border-gray-700 hover:border-purple-500 transition-all z-10"
-        aria-label="Next project"
-      >
-        <FiChevronRight className="w-18 h-18" />
-      </button>
-
-      <div className="flex justify-center mt-6 gap-2">
-        {projects.map((_: any, index: any) => (
+      {hasMultipleProjects && (
+        <>
           <button
-            key={index}
-            onClick={() => setCurrentIndex(index)}
-            className={`w-3 h-3 rounded-full transition-all ${currentIndex === index ? 'bg-purple-500 w-6' : 'bg-gray-700'}`}
-            aria-label={`Go to project ${index + 1}`}
-          />
-        ))}
-      </div>
+            onClick={prevProject}
+            className="absolute left-0 top-1/2 -translate-y-1/2 bg-gray-800/80 hover:bg-purple-600/20 p-2 rounded-full border border-gray-700 hover:border-purple-500 transition-all z-10"
+            aria-label="Previous project"
+          >
+            <FiChevronLeft className="w-4 h-18" />
+          </button>
+
+          <button
+            onClick={nextProject}
+            className="absolute right-0 top-1/2 -translate-y-1/2 bg-gray-800/80 hover:bg-purple-600/20 p-2 rounded-full border border-gray-700 hover:border-purple-500 transition-all z-10"
+            aria-label="Next project"
+          >
+            <FiChevronRight className="w-18 h-18" />
+          </button>
+
+          <div className="flex justify-center mt-6 gap-2">
+            {projects.map((_: any, index: any) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`w-3 h-3 rounded-full transition-all ${currentIndex === index ? 'bg-purple-500 w-6' : 'bg-gray-700'}`}
+                aria-label={`Go to project ${index + 1}`}
+              />
+            ))}
+          </div>
+        </>
+      )}
     </div>
   );
 };
