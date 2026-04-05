@@ -198,7 +198,7 @@
         "label": "Researcher"
       },
       {
-        "value": "7+",
+        "value": "10+",
         "label": "Projects"
       },
       {
@@ -488,10 +488,29 @@
     "enabled": true,
     "title": "Featured Projects",
     "highlight": "Projects",
-    "homepage": ["iotproject", "computerattack"],
     "items": [
       {
         "highlight": true,
+        "title": "CTFSolver",
+        "description": "CTFSolver is a tool designed to assist in solving CTF challenges. It provides utilities as a cli tool and a class for automating the solutions. It is currently being developed but can be installed via pypi ( ctfsolver )",
+        "githubLink": "https://github.com/nikolasfil/CTFSolverScript",
+        "liveLink": "",
+        "technologies": ["cli tool", "Python", "CTF", "Hacking", "Automation"],
+        "type": "Project",
+        "nickname": "ctfsolver"
+      },
+      {
+        "highlight": true,
+        "title": "SBOMPY",
+        "description": "SBOMPY is a Python-based, FastAPI service that can be triggered via HTTP to generate SBOMs for the Docker workloads currently running on a host. It is designed for platform-style deployments where verticals are deployed as containers and must be scanned and recorded as part of the operational flow",
+        "githubLink": "https://github.com/ISSG-UPAT/SBOMPY",
+        "liveLink": "",
+        "technologies": ["API", "Python", "Docker", "SBOM", "Automation"],
+        "type": "Project",
+        "nickname": "sbompy"
+      },
+      {
+        "highlight": false,
         "title": "IOT Project",
         "description": "An infrastructure managing IOT tracker and buttons, connected to Fiware. It consists of 2 servers used for IOT communication, an express website server, a temporary server for the database and an MQTT publisher for virtual sensors.",
         "githubLink": "https://github.com/nikolasfil/IOT-Project-2023",

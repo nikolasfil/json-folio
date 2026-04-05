@@ -1,5 +1,5 @@
 import { FaDev, FaGraduationCap, FaKaggle } from "react-icons/fa";
-import { FiGithub, FiLinkedin, FiTwitter, FiMail } from "react-icons/fi";
+import { FiFlag, FiGithub, FiLinkedin, FiTwitter, FiMail } from "react-icons/fi";
 import {
   SiHackthebox,
   SiLeetcode,
@@ -13,6 +13,7 @@ export const iconComponents: { [key: string]: any } = {
   FiLinkedin,
   FiTwitter,
   FiMail,
+  FiFlag,
   SiLeetcode,
   SiTryhackme,
   SiHackthebox,
