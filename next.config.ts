@@ -12,6 +12,8 @@ const nextConfig: NextConfig = {
   basePath,
   assetPrefix: basePath,
   images: {
+    // Static export cannot use the built-in image optimization API.
+    unoptimized: true,
     // Allow images from any external URL (both http and https)
     remotePatterns: [
       {
