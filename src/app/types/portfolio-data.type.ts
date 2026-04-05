@@ -154,11 +154,13 @@ export interface PortfolioData {
     highlight: string;
     items: {
       id: number;
+      highlight?: boolean;
       title: string;
       period: string;
       company: string;
       location: string;
       description: string[];
+      description_more?: string | string[];
       tags: string[];
     }[];
   };
@@ -174,11 +176,13 @@ export interface PortfolioData {
     highlight: string;
     items: {
       id: number;
+      highlight?: boolean;
       title: string;
       period: string;
       company: string;
       location: string;
       description: string[];
+      description_more?: string | string[];
       tags: string[];
     }[];
   };
@@ -188,6 +192,7 @@ export interface PortfolioData {
     title: string;
     highlight: string;
     items: {
+      highlight?: boolean;
       degree: string;
       stream: string;
       institute: string;
@@ -205,8 +210,10 @@ export interface PortfolioData {
     showMoreText?: string;
     loadingText?: string;
     items: {
+      highlight?: boolean;
       title: string;
       description: string;
+      description_more?: string | string[];
       url: string;
       platform: string;
       date: string;
@@ -222,8 +229,10 @@ export interface PortfolioData {
     title: string;
     highlight: string;
     items: {
+      highlight?: boolean;
       title: string;
       description: string;
+      description_more?: string | string[];
       githubLink: string;
       technologies: string[];
       type: string;
@@ -236,6 +245,7 @@ export interface PortfolioData {
     highlight: string;
     description: string[];
     certifications: {
+      highlight?: boolean;
       name: string;
       issuer: string;
       icon?: string;

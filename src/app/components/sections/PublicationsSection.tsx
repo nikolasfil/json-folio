@@ -8,6 +8,8 @@ import { useState } from "react";
 import Loading from "../Loading";
 import { useRouter } from "next/navigation";
 import { parseText } from "../../utils/textParser";
+import { getHighlightedItems } from "../../utils/highlightedItems";
+import { toParagraphs } from "../../utils/textContent";
 
 interface PublicationsSectionProps {
   publications: PortfolioData["publications"] & { more?: any[] };
@@ -63,16 +65,10 @@ export default function PublicationsSection({
 
   const isHome = variant === "home";
 
-  // Displayed items logic (support optional displayLimit on home)
   const allItems = publications.items || [];
-  const displayLimit =
-    isHome && publications.displayLimit ? publications.displayLimit : undefined;
-  const displayedItems =
-    typeof displayLimit === "number"
-      ? allItems.slice(0, displayLimit)
-      : allItems;
-  // const hasMore =
-  // Array.isArray(publications.more) && publications.more.length > 0;
+  const displayedItems = isHome ? getHighlightedItems(allItems) : allItems;
+  const hasMoreItems = isHome && allItems.length > displayedItems.length;
+  const showSectionReadMore = isHome && allItems.length > 0;
   const [isNavigating, setIsNavigating] = useState(false);
   const showMoreText = "Show More";
   const loadingText = "Loading...";
@@ -139,9 +135,27 @@ export default function PublicationsSection({
                     </span>
                   </div>
                   {/* Description - Hidden on mobile */}
-                  <div className="text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed max-h-20 overflow-hidden">
+                  <div
+                    className={`text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed whitespace-pre-wrap break-words ${
+                      isHome ? "max-h-20 overflow-hidden" : ""
+                    }`}
+                  >
                     {parseText(publication.description)}
                   </div>
+                  {!isHome && toParagraphs(publication.description_more).length > 0 && (
+                    <div className="space-y-4">
+                      {toParagraphs(publication.description_more).map(
+                        (paragraph, paragraphIndex) => (
+                          <p
+                            key={paragraphIndex}
+                            className="text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed whitespace-pre-wrap break-words"
+                          >
+                            {parseText(paragraph)}
+                          </p>
+                        ),
+                      )}
+                    </div>
+                  )}
                   <div className="flex flex-col gap-1.5 md:flex-row md:items-center md:justify-between">
                     <div className="flex flex-wrap gap-2 flex-1 min-w-0">
                       {publication.tags.map((tag, tagIndex) => (
@@ -166,7 +180,7 @@ export default function PublicationsSection({
         </div>
 
         {/* Show More Link */}
-        {isHome && showMore && (
+        {isHome && showMore && hasMoreItems && (
           <motion.div
             className="flex justify-end mt-4 md:mt-6"
             initial={{ opacity: 0, y: 20 }}
@@ -187,7 +201,7 @@ export default function PublicationsSection({
         )}
       </section>
 
-      {isHome && (
+      {showSectionReadMore && (
         <div className="mt-8 flex justify-center">
           <a
             href="/publications"

@@ -1,9 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { FiExternalLink } from "react-icons/fi";
 import type { BlogData } from "../../types/blog-data.type";
+import { parseText } from "../../utils/textParser";
+import { toParagraphs } from "../../utils/textContent";
 
 type BlogSectionProps = {
   blog: BlogData["blog"];
@@ -63,9 +64,21 @@ export default function BlogSection({ blog }: BlogSectionProps) {
                   )}
                 </h3>
                 {post.excerpt && (
-                  <p className="text-gray-300 mt-2 leading-relaxed">
-                    {post.excerpt}
+                  <p className="text-gray-300 mt-2 leading-relaxed whitespace-pre-wrap break-words">
+                    {parseText(post.excerpt)}
                   </p>
+                )}
+                {toParagraphs(post.excerpt_more).length > 0 && (
+                  <div className="mt-4 space-y-4">
+                    {toParagraphs(post.excerpt_more).map((paragraph, i) => (
+                      <p
+                        key={i}
+                        className="text-gray-300 leading-relaxed whitespace-pre-wrap break-words"
+                      >
+                        {parseText(paragraph)}
+                      </p>
+                    ))}
+                  </div>
                 )}
                 {Array.isArray(post.tags) && post.tags.length > 0 && (
                   <div className="flex flex-wrap gap-2 mt-3">

@@ -37,7 +37,7 @@ export default function ExperiencePage() {
       title={data.experience.title}
       description={`All ${data.experience.title.toLowerCase()}`}
     >
-      <ExperienceSection experience={data.experience} />
+      <ExperienceSection experience={data.experience} variant="page" />
     </PageShell>
   );
 }

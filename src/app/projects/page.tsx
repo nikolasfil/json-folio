@@ -37,7 +37,7 @@ export default function ProjectsPage() {
       title={data.projects.title}
       description={`All ${data.projects.title.toLowerCase()}`}
     >
-      <ProjectsSection projects={data.projects} />
+      <ProjectsSection projects={data.projects} variant="page" />
     </PageShell>
   );
 }

@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 import { FiArrowUpRight } from "react-icons/fi";
+import { usePathname } from "next/navigation";
+import { iconComponents } from "@/app/utils/iconComponents";
 
 // Define types for the Navbar props
 interface NavItem {
@@ -28,25 +30,16 @@ interface NavbarProps {
   socialLinks: SocialLink[];
 }
 
-// Icon mapping
-const iconComponents: { [key: string]: any } = {
-  FiGithub: require("react-icons/fi").FiGithub,
-  FiLinkedin: require("react-icons/fi").FiLinkedin,
-  FiTwitter: require("react-icons/fi").FiTwitter,
-  FiMail: require("react-icons/fi").FiMail,
-  SiLeetcode: require("react-icons/si").SiLeetcode,
-  FaGraduationCap: require("react-icons/fa").FaGraduationCap,
-  FaKaggle: require("react-icons/fa").FaKaggle,
-  SiStackoverflow: require("react-icons/si").SiStackoverflow,
-  SiMedium: require("react-icons/si").SiMedium,
-  FaDev: require("react-icons/fa").FaDev
-};
-
 const Navbar = ({ activeSection, logo, navLinks, socialLinks }: NavbarProps) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
   const desktopLinks = navLinks.filter((link) => link.navEligibleForDesktop);
   const mobileLinks = navLinks.filter((link) => link.navEligibleForMobile);
+  const isRootPage = pathname === "/";
+
+  const getSectionHref = (section: string) =>
+    isRootPage ? `#${section}` : `/#${section}`;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -73,7 +66,7 @@ const Navbar = ({ activeSection, logo, navLinks, socialLinks }: NavbarProps) => 
         <div className="flex items-center justify-between h-16">
           {/* Logo/Brand */}
           <motion.a 
-            href="#about"
+            href={getSectionHref("about")}
             className="flex items-center"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -95,7 +88,7 @@ const Navbar = ({ activeSection, logo, navLinks, socialLinks }: NavbarProps) => 
                   className="relative"
                 >
                   <a
-                    href={`#${item.section}`}
+                    href={getSectionHref(item.section)}
                     className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${isActive ? "text-white" : "text-gray-300 hover:text-white"}`}
                   >
                     {item.label}
@@ -186,7 +179,7 @@ const Navbar = ({ activeSection, logo, navLinks, socialLinks }: NavbarProps) => 
                     return (
                       <motion.a
                         key={item.section}
-                        href={`#${item.section}`}
+                        href={getSectionHref(item.section)}
                         onClick={() => setMenuOpen(false)}
                         className={`flex items-center justify-between rounded-xl border px-4 py-3 text-sm font-medium transition-colors ${
                           isActive

@@ -171,7 +171,7 @@ export default function Home() {
     index: data.publications.index,
     element: (
       <Suspense fallback={<div />}>
-        <PublicationsSection publications={data.publications} />
+        <PublicationsSection publications={data.publications} variant="home" />
       </Suspense>
     ),
   });
@@ -182,7 +182,7 @@ export default function Home() {
     index: data.experience.index,
     element: (
       <Suspense fallback={<div />}>
-        <ExperienceSection experience={data.experience} />
+        <ExperienceSection experience={data.experience} variant="home" />
       </Suspense>
     ),
   });
@@ -194,7 +194,10 @@ export default function Home() {
     element: (
       <Suspense fallback={<div />}>
         {data.volunteering && (
-          <VolunteeringSection volunteering={data.volunteering} />
+          <VolunteeringSection
+            volunteering={data.volunteering}
+            variant="home"
+          />
         )}
       </Suspense>
     ),
@@ -206,7 +209,7 @@ export default function Home() {
     index: data.education.index,
     element: (
       <Suspense fallback={<div />}>
-        <EducationSection education={data.education} />
+        <EducationSection education={data.education} variant="home" />
       </Suspense>
     ),
   });
@@ -217,7 +220,7 @@ export default function Home() {
     index: data.projects.index,
     element: (
       <Suspense fallback={<div />}>
-        <ProjectsSection projects={data.projects} />
+        <ProjectsSection projects={data.projects} variant="home" />
       </Suspense>
     ),
   });

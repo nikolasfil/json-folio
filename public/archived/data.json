@@ -198,7 +198,7 @@
         "label": "Researcher"
       },
       {
-        "value": "7+",
+        "value": "10+",
         "label": "Projects"
       },
       {
@@ -332,6 +332,7 @@
     "highlight": "Education",
     "items": [
       {
+        "highlight": true,
         "degree": "Integrated Master",
         "stream": "Electrical and Computer Engineering",
         "institute": "University of Patras",
@@ -339,23 +340,7 @@
         "duration": "2019 - Present",
         "location": "Patras, Greece"
       }
-    ],
-    "more": {
-      "index": 5,
-      "enabled": true,
-      "title": "Education",
-      "highlight": "Education",
-      "items": [
-        {
-          "degree": "Integrated Master",
-          "stream": "Electrical and Computer Engineering",
-          "institute": "University of Patras",
-          "result": "",
-          "duration": "2019 - Present",
-          "location": "Patras, Greece"
-        }
-      ]
-    }
+    ]
   },
   "experience": {
     "index": 4,
@@ -365,6 +350,7 @@
     "items": [
       {
         "id": 1,
+        "highlight": true,
         "title": "Cybersecurity Research Associate",
         "period": "April 2024 - Present",
         "company": "University of Patras",
@@ -374,10 +360,14 @@
           "Contribute to technical documentation, demos, and research outputs",
           "Build automation and tooling in Python; containerize deployments with Docker/Kubernetes"
         ],
+        "description_more": [
+          "My work focuses on turning research output into repeatable lab environments and practical demonstrations that other researchers or students can actually use."
+        ],
         "tags": ["5G Security", "Python", "Docker", "Kubernetes", "Research"]
       },
       {
         "id": 2,
+        "highlight": false,
         "title": "Lab Assistant - Database Management",
         "period": "Oct 2023 - Jan 2024",
         "company": "University of Patras",
@@ -390,6 +380,7 @@
       },
       {
         "id": 3,
+        "highlight": false,
         "title": "Lab Assistant - Website Development",
         "period": "Feb 2023 - Present",
         "company": "University of Patras",
@@ -400,52 +391,7 @@
         ],
         "tags": ["Teaching", "Labs", "University"]
       }
-    ],
-    "more": {
-      "index": 4,
-      "enabled": true,
-      "title": "Work Experience",
-      "highlight": "Experience",
-      "items": [
-        {
-          "id": 1,
-          "title": "Cybersecurity Research Associate",
-          "period": "April 2024 - Present",
-          "company": "University of Patras",
-          "location": "Patras, Greece",
-          "description": [
-            "Research and engineering for security experimentation and training environments",
-            "Contribute to technical documentation, demos, and research outputs",
-            "Build automation and tooling in Python; containerize deployments with Docker/Kubernetes"
-          ],
-          "tags": ["5G Security", "Python", "Docker", "Kubernetes", "Research"]
-        },
-        {
-          "id": 2,
-          "title": "Lab Assistant - Database Management",
-          "period": "Oct 2023 - Jan 2024",
-          "company": "University of Patras",
-          "location": "Patras, Greece",
-          "description": [
-            "Supervised weekly labs for 40 students, assisting with SQL and database concepts",
-            "Provided on-the-spot debugging, problem-solving and guidance"
-          ],
-          "tags": ["Teaching", "Labs", "University"]
-        },
-        {
-          "id": 3,
-          "title": "Lab Assistant - Website Development",
-          "period": "Feb 2023 - Present",
-          "company": "University of Patras",
-          "location": "Patras, Greece",
-          "description": [
-            "Led 2-hour weekly labs for 40+ students covering Node.js, Handlebars, CSS and JavaScript",
-            "Answered technical questions and supported project development"
-          ],
-          "tags": ["Teaching", "Labs", "University"]
-        }
-      ]
-    }
+    ]
   },
   "publications": {
     "index": 5,
@@ -456,8 +402,10 @@
     "showMoreText": "View All Articles",
     "items": [
       {
+        "highlight": true,
         "title": "A large scale analysis of code security in public repositories",
         "description": "This paper explores the code analysis features of the proposed platform were used in a large scale analysis on 10,855 public repositories.",
+        "description_more": [],
         "url": "https://link.springer.com/article/10.1007/s10207-025-01187-w",
         "platform": "International Journal of Information Security",
         "date": "2026",
@@ -466,6 +414,7 @@
         "tags": ["opensource", "code analysis", "vulnerability detection"]
       },
       {
+        "highlight": true,
         "title": "A Practical Assessment of IDS and IPS Capabilities in a 5G Network Testbed",
         "description": "This paper presents a comprehensive assessment of Intrusion Detection Systems (IDS) and Intrusion Prevention Systems (IPS) within a 5G network testbed. We evaluate the performance, accuracy, and effectiveness of various IDS/IPS solutions in detecting and mitigating cyber threats specific to 5G environments.",
         "url": "https://ieeexplore.ieee.org/document/11349448",
@@ -482,9 +431,32 @@
     "enabled": true,
     "title": "Featured Projects",
     "highlight": "Projects",
-    "homepage": ["iotproject", "computerattack"],
     "items": [
       {
+        "highlight": true,
+        "title": "CTFSolver",
+        "description": "CTFSolver is a tool designed to assist in solving CTF challenges. It provides utilities as a cli tool and a class for automating the solutions. It is currently being developed but can be installed via pypi ( ctfsolver )",
+        "description_more": [
+          "The idea is to package repetitive solving workflows into reusable tooling, so challenge work can focus more on analysis and less on boilerplate setup."
+        ],
+        "githubLink": "https://github.com/nikolasfil/CTFSolverScript",
+        "liveLink": "",
+        "technologies": ["cli tool", "Python", "CTF", "Hacking", "Automation"],
+        "type": "Project",
+        "nickname": "ctfsolver"
+      },
+      {
+        "highlight": true,
+        "title": "SBOMPY",
+        "description": "SBOMPY is a Python-based, FastAPI service that can be triggered via HTTP to generate SBOMs for the Docker workloads currently running on a host. It is designed for platform-style deployments where verticals are deployed as containers and must be scanned and recorded as part of the operational flow",
+        "githubLink": "https://github.com/ISSG-UPAT/SBOMPY",
+        "liveLink": "",
+        "technologies": ["API", "Python", "Docker", "SBOM", "Automation"],
+        "type": "Project",
+        "nickname": "sbompy"
+      },
+      {
+        "highlight": false,
         "title": "IOT Project",
         "description": "An infrastructure managing IOT tracker and buttons, connected to Fiware. It consists of 2 servers used for IOT communication, an express website server, a temporary server for the database and an MQTT publisher for virtual sensors.",
         "githubLink": "https://github.com/nikolasfil/IOT-Project-2023",
@@ -505,6 +477,7 @@
         "nickname": "iotproject"
       },
       {
+        "highlight": false,
         "title": "Simulating Attack on a Computer System",
         "description": "A vulnerability assessment of a virtual machine. To gain access to the machine, four steps were followed: enumeration of the ports, identifying vulnerabilities, exploiting the vulnerabilities and elevating privileges for root user access.",
         "githubLink": "https://github.com/nikolasfil/ComputerSecurityProject",
@@ -522,6 +495,7 @@
         "nickname": "computerattack"
       },
       {
+        "highlight": false,
         "title": "Web Server Hardening",
         "description": "Setting up and securing a Linux web server. Using a virtual machine, set up a Linux web server using a headless Debian distro, configured the firewall and a fail2ban system to prevent brute force attacks, learned basic concepts of private-public key cryptography for more secure communication, set up a cloud instance, configured a custom DNS server and attempted a DNS caching attack from an external attacker's point of view.",
         "githubLink": "https://github.com/nikolasfil/ModernCyberApplications",
@@ -543,6 +517,7 @@
         "nickname": "computerattack"
       },
       {
+        "highlight": false,
         "title": "Fullstack website Development: Bilbo",
         "description": "Bilbo is a website managing libraries. Developed using Node.js, Handlebars and SQLite as the database model.",
         "githubLink": "https://github.com/nikolasfil/Bilbo",
@@ -563,6 +538,7 @@
         "nickname": "bilbo"
       },
       {
+        "highlight": false,
         "title": "Advanced Programming Techniques Project",
         "description": "A three part project used to demonstrate code testing, version control with git and GitHub, and dockerization using an MQTT server.",
         "githubLink": "https://github.com/nikolasfil/AdvancedProgrammingProject",
@@ -581,6 +557,7 @@
         "nickname": "advancedprogramming"
       },
       {
+        "highlight": false,
         "title": "Database Project",
         "description": "A command line application managing charging stations for electrical cars. The database model is written in SQLite; the application and database management are in Python.",
         "githubLink": "https://github.com/nikolasfil/Database-Charging-Stations",
@@ -589,6 +566,7 @@
         "type": "Project"
       },
       {
+        "highlight": false,
         "title": "CTF Challenges",
         "description": "Created Capture The Flag challenges in the categories Miscellaneous and Forensics to teach practical cybersecurity skills.",
         "githubLink": "https://github.com/nikolasfil/CTF",
@@ -597,122 +575,7 @@
         "type": "Project",
         "nickname": "ctfchallenges"
       }
-    ],
-    "more": {
-      "index": 6,
-      "enabled": true,
-      "title": "Featured Projects",
-      "highlight": "Projects",
-      "items": [
-        {
-          "title": "IOT Project",
-          "description": "An infrastructure managing IOT tracker and buttons, connected to Fiware. It consists of 2 servers used for IOT communication, an express website server, a temporary server for the database and an MQTT publisher for virtual sensors.",
-          "githubLink": "https://github.com/nikolasfil/IOT-Project-2023",
-          "liveLink": "",
-          "technologies": [
-            "Docker",
-            "API",
-            "NodeJs",
-            "CSS",
-            "Javascript",
-            "Express Handlebars",
-            "SQLite",
-            "Python",
-            "MQTT Broker",
-            "Flask Framework"
-          ],
-          "type": "Project"
-        },
-        {
-          "title": "Simulating Attack on a Computer System",
-          "description": "A vulnerability assessment of a virtual machine. To gain access to the machine, four steps were followed: enumeration of the ports, identifying vulnerabilities, exploiting the vulnerabilities and elevating privileges for root user access.",
-          "githubLink": "https://github.com/nikolasfil/ComputerSecurityProject",
-          "liveLink": "",
-          "technologies": [
-            "nmap",
-            "hydra",
-            "johnny",
-            "linux",
-            "enumeration",
-            "zip-cracking",
-            "exploit-db"
-          ],
-          "type": "Project"
-        },
-        {
-          "title": "Web Server Hardening",
-          "description": "Setting up and securing a Linux web server. Using a virtual machine, set up a Linux web server using a headless Debian distro, configured the firewall and a fail2ban system to prevent brute force attacks, learned basic concepts of private-public key cryptography for more secure communication, set up a cloud instance, configured a custom DNS server and attempted a DNS caching attack from an external attacker's point of view.",
-          "githubLink": "https://github.com/nikolasfil/ModernCyberApplications",
-          "liveLink": "",
-          "technologies": [
-            "linux",
-            "firewall",
-            "iptables",
-            "fail2ban",
-            "virtual-machine",
-            "ssh",
-            "openssl",
-            "dns-caching",
-            "dns attacks",
-            "networking",
-            "cloud"
-          ],
-          "type": "Project"
-        },
-        {
-          "title": "Fullstack website Development: Bilbo",
-          "description": "Bilbo is a website managing libraries. Developed using Node.js, Handlebars and SQLite as the database model.",
-          "githubLink": "https://github.com/nikolasfil/Bilbo",
-          "liveLink": "https://bilbolibrary.herokuapp.com/",
-          "technologies": [
-            "HTML",
-            "CSS",
-            "Node.js",
-            "Express",
-            "Express.js",
-            "Handlebars.js",
-            "SQLite",
-            "Full-Stack Development",
-            "JavaScript",
-            "SQL"
-          ],
-          "type": "Project"
-        },
-        {
-          "title": "Advanced Programming Techniques Project",
-          "description": "A three part project used to demonstrate code testing, version control with git and GitHub, and dockerization using an MQTT server.",
-          "githubLink": "https://github.com/nikolasfil/AdvancedProgrammingProject",
-          "liveLink": "",
-          "technologies": [
-            "python",
-            "testing",
-            "docker",
-            "git",
-            "github",
-            "networking",
-            "http",
-            "mqtt"
-          ],
-          "type": "Project"
-        },
-        {
-          "title": "Database Project",
-          "description": "A command line application managing charging stations for electrical cars. The database model is written in SQLite; the application and database management are in Python.",
-          "githubLink": "https://github.com/nikolasfil/Database-Charging-Stations",
-          "liveLink": "",
-          "technologies": ["SQLite", "Python (Programming Language)", "SQL"],
-          "type": "Project"
-        },
-        {
-          "title": "CTF Challenges",
-          "description": "Created Capture The Flag challenges in the categories Miscellaneous and Forensics to teach practical cybersecurity skills.",
-          "githubLink": "https://github.com/nikolasfil/CTF",
-          "liveLink": "",
-          "technologies": ["Python", "steganography", "networking"],
-          "type": "Project"
-        }
-      ]
-    }
+    ]
   },
   "achievements": {
     "index": 8,
@@ -733,50 +596,20 @@
     ],
     "certifications": [
       {
+        "highlight": true,
         "name": "Reverse Engineering 101",
         "issuer": "Kaspersky, Computer and Network Security",
         "icon": "",
         "url": ""
       },
       {
+        "highlight": false,
         "name": "SQL Injection Attacks",
         "issuer": "EC-Council, codered",
         "icon": "",
         "url": ""
       }
-    ],
-    "more": {
-      "index": 7,
-      "enabled": true,
-      "title": "Highlights",
-      "highlight": "Highlights",
-      "description": [
-        "Executive Chair - IEEE Student Branch University of Patras (team of 25+ volunteers)",
-        "Cybersecurity Study Group Coordinator - IEEE SB UPatras (hands-on training & mentoring)",
-        "CTF Challenge Author & Organizer - UniHack 2025 CTF (University of Patras)",
-        "Selected competition results:",
-        "GRCSC CTF Competition 2025 - 2nd",
-        "ReplyCode Challenge 2025 - 249th",
-        "HTB Cyber Apocalypse CTF Competition 2025 - 434th",
-        "NTUA Hack3.0 CTF Competition - 2nd",
-        "University CTF 2024: Binary Badlands - 125th",
-        "NTUA Hack2.0 CTF Competition - 2nd"
-      ],
-      "certifications": [
-        {
-          "name": "Reverse Engineering 101",
-          "issuer": "Kaspersky, Computer and Network Security",
-          "icon": "",
-          "url": ""
-        },
-        {
-          "name": "SQL Injection Attacks",
-          "issuer": "EC-Council, codered",
-          "icon": "",
-          "url": ""
-        }
-      ]
-    }
+    ]
   },
   "testimonials": {
     "enabled": false,
@@ -818,61 +651,11 @@
         "icon": "FiFlag"
       },
       {
-        "name": "CTFlearn",
-        "url": "https://ctflearn.com/user/nikolasfil",
-        "icon": "FiFlag"
-      },
-      {
         "name": "Email",
         "url": "mailto:filippatos.nikolas@gmail.com",
         "icon": "FiMail"
       }
-    ],
-    "more": {
-      "index": 190,
-      "enabled": true,
-      "title": "Get In Touch",
-      "highlight": "Contact",
-      "email": "filippatos.nikolas@gmail.com",
-      "location": "Patras, Greece",
-      "socialLinks": [
-        {
-          "name": "GitHub",
-          "url": "https://github.com/nikolasfil",
-          "icon": "FiGithub"
-        },
-        {
-          "name": "LinkedIn",
-          "url": "https://www.linkedin.com/in/nikolas-filippatos/",
-          "icon": "FiLinkedin"
-        },
-        {
-          "name": "TryHackMe",
-          "url": "https://tryhackme.com/p/nikolasfil",
-          "icon": "SiTryhackme"
-        },
-        {
-          "name": "HackTheBox",
-          "url": "https://app.hackthebox.com/profile/1057635",
-          "icon": "SiHackthebox"
-        },
-        {
-          "name": "picoCTF",
-          "url": "https://play.picoctf.org/users/nikolasfil",
-          "icon": "FiFlag"
-        },
-        {
-          "name": "CTFlearn",
-          "url": "https://ctflearn.com/user/nikolasfil",
-          "icon": "FiFlag"
-        },
-        {
-          "name": "Email",
-          "url": "mailto:filippatos.nikolas@gmail.com",
-          "icon": "FiMail"
-        }
-      ]
-    }
+    ]
   },
 
   "contactForm": {
@@ -984,7 +767,25 @@
     "highlight": "ing",
     "items": [
       {
+        "id": 5,
+        "highlight": true,
+        "title": "Hack The Box Meetup Host, Patra",
+        "company": "Hack The Box",
+        "period": "December 2025 - Present",
+        "description": [
+          "Organizing meetups in Patra for the local Cybersecurity community. Coordinating hands-on workshops, live demonstrations and CTF-Style sessions focused on practical ethical hacking skills",
+          "https://www.meetup.com/hack-the-box-meetup-patras-gr"
+        ],
+        "urls": [
+          {
+            "label": "HackTheBox",
+            "href": "https://www.hackthebox.com/"
+          }
+        ]
+      },
+      {
         "id": 1,
+        "highlight": true,
         "title": "Event Organizer and author",
         "company": "ISSG, University of Patras",
         "period": "December 13 2025",
@@ -1006,6 +807,7 @@
       },
       {
         "id": 2,
+        "highlight": true,
         "title": "Executive Chair",
         "company": "IEEE Student Branch University of Patras",
         "period": "May 2023 - Sep 2024",
@@ -1013,6 +815,9 @@
           "Managed 25 volunteers within a 100+ member branch",
           "Organized events, external collaborations and community initiatives",
           "As the Chair of the student branch, I am in charge of organizing and overseeing the executive committee(5 positions) , representing the branch in public events ,managing external affairs and keeping track of the overall progress of the organization ."
+        ],
+        "description_more": [
+          "The role also involved coordinating with different student groups, maintaining continuity across events, and supporting community growth over a longer period."
         ],
         "tags": [
           "Leadership",
@@ -1023,6 +828,7 @@
       },
       {
         "id": 3,
+        "highlight": false,
 
         "title": "Cybersecurity Study Group Coordinator",
         "company": "IEEE Student Branch, University of Patras",
@@ -1037,6 +843,7 @@
       },
       {
         "id": 4,
+        "highlight": false,
         "title": "Competitive Programming Coordinator",
         "company": "IEEE Student Branch, University of Patras",
         "period": "Feb 2022 - May 2023",
@@ -1094,11 +901,6 @@
           {
             "label": "picoCTF",
             "url": "https://play.picoctf.org/users/nikolasfil",
-            "description": "Username: nikolasfil"
-          },
-          {
-            "label": "CTFlearn",
-            "url": "https://ctflearn.com/user/nikolasfil",
             "description": "Username: nikolasfil"
           }
         ]

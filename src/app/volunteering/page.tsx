@@ -37,7 +37,7 @@ export default function VolunteeringPage() {
       title={data.volunteering.title}
       description={`All ${data.volunteering.title.toLowerCase()}`}
     >
-      <VolunteeringSection volunteering={data.volunteering} />
+      <VolunteeringSection volunteering={data.volunteering} variant="page" />
     </PageShell>
   );
 }
