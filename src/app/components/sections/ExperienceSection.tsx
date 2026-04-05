@@ -37,7 +37,10 @@ export default function ExperienceSection({
         <span className="text-purple-400"> {experience.highlight}</span>
       </motion.h2>
       <Suspense fallback={<div>Loading...</div>}>
-        <ExperienceTimeline experiences={displayedItems} />
+        <ExperienceTimeline
+          experiences={displayedItems}
+          showExtendedText={!isHome}
+        />
       </Suspense>
       {showReadMore && (
         <div className="mt-8 flex justify-center">

@@ -42,7 +42,10 @@ export default function ProjectsSection({
 
       <div className="relative">
         <Suspense fallback={<div>Loading...</div>}>
-          <ProjectCarousel projects={displayedItems} />
+          <ProjectCarousel
+            projects={displayedItems}
+            showExtendedText={!isHome}
+          />
         </Suspense>
       </div>
       {showReadMore && (

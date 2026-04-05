@@ -12,6 +12,10 @@
         "id": "post-1",
         "title": "Hosting UNIHACK 2025 in Patras",
         "excerpt": "A recap of my experience hosting UNIHACK 2025 in Patras, Greece, including 6 challenges and successes of organizing a local hub in Patras.",
+        "excerpt_more": [
+          "The event required coordinating logistics, challenge preparation, participant communication, and the on-site execution of the local hub.",
+          "This field is intended for longer blog content on `/blog`. You can add as many extra paragraphs as you need here without creating a second duplicated object."
+        ],
         "date": "2025-12-13",
         "tags": ["UNIHACK", "CTF", "Cybersecurity", "Hackathon"],
         "url": "",

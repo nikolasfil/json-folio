@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { parseText } from "../utils/textParser";
+import { toParagraphs } from "../utils/textContent";
 
 interface ExperienceItem {
   id: number;
@@ -11,14 +12,19 @@ interface ExperienceItem {
   company: string;
   location: string;
   description: string[];
+  description_more?: string | string[];
   tags: string[];
 }
 
 interface ExperienceTimelineProps {
   experiences: ExperienceItem[];
+  showExtendedText?: boolean;
 }
 
-const ExperienceTimeline = ({ experiences }: ExperienceTimelineProps) => {
+const ExperienceTimeline = ({
+  experiences,
+  showExtendedText = false,
+}: ExperienceTimelineProps) => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -123,6 +129,18 @@ const ExperienceTimeline = ({ experiences }: ExperienceTimelineProps) => {
                   </motion.li>
                 ))}
               </ul>
+              {showExtendedText && toParagraphs(exp.description_more).length > 0 && (
+                <div className="mt-5 space-y-4">
+                  {toParagraphs(exp.description_more).map((paragraph, i) => (
+                    <p
+                      key={i}
+                      className="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed whitespace-pre-wrap break-words"
+                    >
+                      {parseText(paragraph)}
+                    </p>
+                  ))}
+                </div>
+              )}
             </motion.div>
           </motion.div>
         ))}

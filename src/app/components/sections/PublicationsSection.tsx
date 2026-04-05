@@ -9,6 +9,7 @@ import Loading from "../Loading";
 import { useRouter } from "next/navigation";
 import { parseText } from "../../utils/textParser";
 import { getHighlightedItems } from "../../utils/highlightedItems";
+import { toParagraphs } from "../../utils/textContent";
 
 interface PublicationsSectionProps {
   publications: PortfolioData["publications"] & { more?: any[] };
@@ -133,9 +134,27 @@ export default function PublicationsSection({
                     </span>
                   </div>
                   {/* Description - Hidden on mobile */}
-                  <div className="text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed max-h-20 overflow-hidden">
+                  <div
+                    className={`text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed whitespace-pre-wrap break-words ${
+                      isHome ? "max-h-20 overflow-hidden" : ""
+                    }`}
+                  >
                     {parseText(publication.description)}
                   </div>
+                  {!isHome && toParagraphs(publication.description_more).length > 0 && (
+                    <div className="space-y-4">
+                      {toParagraphs(publication.description_more).map(
+                        (paragraph, paragraphIndex) => (
+                          <p
+                            key={paragraphIndex}
+                            className="text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed whitespace-pre-wrap break-words"
+                          >
+                            {parseText(paragraph)}
+                          </p>
+                        ),
+                      )}
+                    </div>
+                  )}
                   <div className="flex flex-col gap-1.5 md:flex-row md:items-center md:justify-between">
                     <div className="flex flex-wrap gap-2 flex-1 min-w-0">
                       {publication.tags.map((tag, tagIndex) => (

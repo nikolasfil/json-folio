@@ -160,6 +160,7 @@ export interface PortfolioData {
       company: string;
       location: string;
       description: string[];
+      description_more?: string | string[];
       tags: string[];
     }[];
   };
@@ -181,6 +182,7 @@ export interface PortfolioData {
       company: string;
       location: string;
       description: string[];
+      description_more?: string | string[];
       tags: string[];
     }[];
   };
@@ -211,6 +213,7 @@ export interface PortfolioData {
       highlight?: boolean;
       title: string;
       description: string;
+      description_more?: string | string[];
       url: string;
       platform: string;
       date: string;
@@ -229,6 +232,7 @@ export interface PortfolioData {
       highlight?: boolean;
       title: string;
       description: string;
+      description_more?: string | string[];
       githubLink: string;
       technologies: string[];
       type: string;

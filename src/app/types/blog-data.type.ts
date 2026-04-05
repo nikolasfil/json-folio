@@ -11,6 +11,7 @@ export interface BlogData {
       id: string;
       title: string;
       excerpt?: string;
+      excerpt_more?: string | string[];
       date?: string;
       tags?: string[];
       url?: string;
