@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 import { FiArrowUpRight } from "react-icons/fi";
+import { iconComponents } from "@/app/utils/iconComponents";
 
 // Define types for the Navbar props
 interface NavItem {
@@ -27,20 +28,6 @@ interface NavbarProps {
   navLinks: NavItem[];
   socialLinks: SocialLink[];
 }
-
-// Icon mapping
-const iconComponents: { [key: string]: any } = {
-  FiGithub: require("react-icons/fi").FiGithub,
-  FiLinkedin: require("react-icons/fi").FiLinkedin,
-  FiTwitter: require("react-icons/fi").FiTwitter,
-  FiMail: require("react-icons/fi").FiMail,
-  SiLeetcode: require("react-icons/si").SiLeetcode,
-  FaGraduationCap: require("react-icons/fa").FaGraduationCap,
-  FaKaggle: require("react-icons/fa").FaKaggle,
-  SiStackoverflow: require("react-icons/si").SiStackoverflow,
-  SiMedium: require("react-icons/si").SiMedium,
-  FaDev: require("react-icons/fa").FaDev
-};
 
 const Navbar = ({ activeSection, logo, navLinks, socialLinks }: NavbarProps) => {
   const [menuOpen, setMenuOpen] = useState(false);

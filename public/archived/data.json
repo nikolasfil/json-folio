@@ -833,11 +833,6 @@
         "icon": "FiFlag"
       },
       {
-        "name": "CTFlearn",
-        "url": "https://ctflearn.com/user/nikolasfil",
-        "icon": "FiFlag"
-      },
-      {
         "name": "Email",
         "url": "mailto:filippatos.nikolas@gmail.com",
         "icon": "FiMail"
@@ -876,11 +871,7 @@
           "url": "https://play.picoctf.org/users/nikolasfil",
           "icon": "FiFlag"
         },
-        {
-          "name": "CTFlearn",
-          "url": "https://ctflearn.com/user/nikolasfil",
-          "icon": "FiFlag"
-        },
+
         {
           "name": "Email",
           "url": "mailto:filippatos.nikolas@gmail.com",
@@ -999,6 +990,23 @@
     "highlight": "ing",
     "items": [
       {
+        "id": 5,
+        "highlight": true,
+        "title": "Hack The Box Meetup Host, Patra",
+        "company": "Hack The Box",
+        "period": "December 2025 - Present",
+        "description": [
+          "Organizing meetups in Patra for the local Cybersecurity community. Coordinating hands-on workshops, live demonstrations and CTF-Style sessions focused on practical ethical hacking skills",
+          "https://www.meetup.com/hack-the-box-meetup-patras-gr"
+        ],
+        "urls": [
+          {
+            "label": "HackTheBox",
+            "href": "https://www.hackthebox.com/"
+          }
+        ]
+      },
+      {
         "id": 1,
         "highlight": true,
         "title": "Event Organizer and author",
@@ -1113,11 +1121,6 @@
           {
             "label": "picoCTF",
             "url": "https://play.picoctf.org/users/nikolasfil",
-            "description": "Username: nikolasfil"
-          },
-          {
-            "label": "CTFlearn",
-            "url": "https://ctflearn.com/user/nikolasfil",
             "description": "Username: nikolasfil"
           }
         ]
